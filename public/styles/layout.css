@@ -175,6 +175,7 @@ body {
 .flot-chart {
   display: block;
   height: 400px;
+  padding: 10px;
 }
 .flot-chart-content {
   width: 100%;
@@ -499,4 +500,9 @@ table.dataTable thead .sorting:after {
 
 #mortgage-results {
   padding-top: 15px;
+}
+
+#submit-button {
+  float: right;
+  margin: 4px;
 }
