@@ -1,0 +1,110 @@
+body {
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+text.arc {
+  font: 12px sans-serif;
+  font-weight: 300;
+  text-anchor: middle;
+  fill: white;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+.legend text {
+  font-size: 12px;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.muted {
+    text-decoration: none;
+    color: gray;
+}
+
+span.muted {
+    font-weight: 300;
+}
+
+.noUi-horizontal {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+
+.portfolioLabel {
+    margin-bottom: 10px;
+}
+
+#container {
+    margin-top: 10px;
+}
+
+div.form-group, form button {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.slider {
+    margin-bottom: 20px;
+}
+
+.noUi-connect {
+    background: gray;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: 800;
+}
+
+input {
+    font-weight: 300;
+}
+
+select {
+    margin-left: 5px;
+}
+
+.portfolioPlots {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.plotTitle {
+    font-size: 18px;
+    fill: gray;
+}
+
+.hover * {
+    fill: #34495e !important;
+}
+
+.barText {
+    font-size: 10px;
+    fill: #272629;
+}
+
+.barText:hover {
+    font-size: 20px;
+    font-weight: bold;
+    fill: #272629;

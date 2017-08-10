@@ -25,9 +25,20 @@
       <!-- Custom Fonts -->
       <link href="/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 
+      <!-- Calculator CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/leongersen/noUiSlider/master/distribute/nouislider.min.css" />
+        <link href="/styles/calculator-css/styles.css" rel="stylesheet">
+        <link href="/styles/calculator-css/lib/tooltip.css" rel="stylesheet">
+        <link href="https://cdn.rawgit.com/MasterMaps/d3-slider/master/d3.slider.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,300,700,800" />
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
    </head>
 
-   <body>
+   <body onload="init('#graphic-appender')">
       <div id="wrapper">
 
          <!-- Navigation -->
@@ -95,41 +106,13 @@
                      <h1 class="page-header">Mortgage Wizard</h1>
                   </div>
                   <div class="col-lg-12">
-                     <div class="panel panel-default">
+                     <div id="graphic-appender" class="panel panel-default">
                         <div class="panel-heading">
                            <i class="fa fa-check-square-o fa-2x"></i>
                            <div class="btn-group"></div>
                         </div>
 
-                        <!-- Mortgage Form -->
-                        <form id="mortgage-form" name="mainform" action="monthlyPayment" method="POST">
-                           <span>Loan Amount:</span>
-                           <div class="form-group input-group">
-                              <span class="input-group-addon">$</span>
-                              <input type="text" class="form-control" name="p">
-                              <span class="input-group-addon">.00</span>
-                           </div>
-                           <span>Mortgage Rate:</span>
-                           <div class="form-group input-group">
-                              <input class="form-control" name="r" value="5">
-                              <span class="input-group-addon">%</span>
-                           </div>
-                           <span>Years to Pay:</span>
-                           <div class="form-group">
-                              <input class="form-control" name="y" value="10">
-                           </div>
-                           <button type="button" class="btn btn-primary" onclick="doCalc()">Calculate</button>
 
-                           <!-- Results -->
-                           <div id="mortgage-results">
-                              <span>Results</span>
-                              <span>Monthly Payment:</span>
-                              <div class="form-group input-group">
-                                 <span class="input-group-addon">$</span>
-                                 <input type="text" name="payment" class="form-control" name="p">
-                              </div>
-                           </div>
-                        </form>
                      </div>
                   </div>
                </div>
@@ -145,21 +128,23 @@
    <!-- Metis Menu Plugin JavaScript -->
    <script src="/vendor/metisMenu/metisMenu.js"></script>
 
-   <!-- Charts JavaScript -->
+    <!-- Custom Theme JavaScript -->
+    <script src="/scripts/pagewrapper.js"></script>
 
-   <script src="/vendor/flot/excanvas.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.js"></script>
-   <script src="/vendor/flot/jquery.flot.pie.js"></script>
-   <script src="/vendor/flot/jquery.flot.resize.js"></script>
-   <script src="/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
-   <script src="/data/flot-data.js"></script>
-
-   <!-- Custom Theme JavaScript -->
-   <script src="/scripts/pagewrapper.js"></script>
-
-   <!-- Calculator JavaScript -->
-   <script src="/scripts/calculator.js"></script>
-
-   </body>
+    <!-- Calculator JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mbostock/5577023/raw/5ee09dca6afdbef864de89d4d6caa3296f926f00/colorbrewer.min.js "></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/leongersen/noUiSlider/master/distribute/nouislider.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="/scripts/calculator-scripts/main.js"></script>
+    <script src="/scripts/calculator-scripts/plots.js"></script>
+    <script src="/scripts/calculator-scripts/utils.js"></script>
+    <script src="/scripts/calculator-scripts/classes.js"></script>
+    <script src="/scripts/calculator-scripts/lib/tooltip.js"></script>
 
 </html>
+
+

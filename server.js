@@ -95,10 +95,8 @@ app.get("/mortgage", (req, res) => {
   res.render('mortgage')
 })
 
-// Error handler
-app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+app.get("/investment", (req, res) => {
+  res.render('investment')
 })
 
 app.listen(PORT, () => {
