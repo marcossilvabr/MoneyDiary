@@ -7,6 +7,7 @@ const ENV        = process.env.ENV || "development"
 const express    = require("express")
 const app        = express()
 const bodyParser = require('body-parser')
+const bcrypt     = require('bcrypt');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -15,13 +16,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // const MongoClient = require('mongodb').MongoClient
 const MongoURI = 'mongodb://localhost:27017/moneyDiary'
 const mongoose = require('mongoose')
-
-// mongoose.connect(MongoURI)
 let db = mongoose.connect(MongoURI, {
   useMongoClient: true
 });
+// Mongoose schema
 let Data
 
+// db connection and schema storage
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
   console.log("we're connected!")
@@ -87,7 +88,6 @@ app.post("/cashflowData", (req, res) => {
       res.send(err);
 
       res.redirect('back');
-      // res.json({ message: 'Data created!' });
   });
 })
 
@@ -99,6 +99,19 @@ app.get("/investment", (req, res) => {
   res.render('investment')
 })
 
+
+// --> User Handlers <-- //
+
+app.get("/register", (req, res) => {
+  res.render('register')
+})
+
+app.get("/login", (req, res) => {
+  res.render('login')
+})
+
+
+// Port Listener
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT)
 })
