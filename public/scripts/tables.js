@@ -2,7 +2,7 @@
 $(document).ready(function() {
     $('#example').DataTable({
         ajax: {
-            url: '/test.json'
+            url: '/cashflowData'
         },
 
         "footerCallback": function ( row, data, start, end, display ) {
