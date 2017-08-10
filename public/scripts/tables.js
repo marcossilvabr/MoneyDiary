@@ -3,7 +3,7 @@ $(document).ready(function() {
         ajax: {
             url: '/cashflowData'
         },
-        "dom": 'lrtip',
+        "dom": 'lfrtip',
 
         initComplete: function () {
             this.api().columns(0).every( function () {
@@ -84,3 +84,8 @@ $(document).ready(function() {
 //     $('#button').click( function () {
 //         table.row('.selected').remove().draw( false );
 //     } );
+
+
+// } );
+
+// } );
