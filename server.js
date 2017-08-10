@@ -24,6 +24,10 @@ app.get("/mortgage", (req, res) => {
   res.render('mortgage')
 })
 
+app.get("/investment", (req, res) => {
+  res.render('investment')
+})
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT)
 })
