@@ -84,9 +84,3 @@ $(document).ready(function() {
 //     $('#button').click( function () {
 //         table.row('.selected').remove().draw( false );
 //     } );
-
-<<<<<<< HEAD
-} );
-=======
-// } );
->>>>>>> edbf98eee6c62995a79ef061328468d1108eb080
