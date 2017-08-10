@@ -134,8 +134,7 @@
                                        <div class="form-group" style="float: right">
                                           <input placeholder="note (optional)" class="form-control">
                                        </div>
-                                       <!-- <input type="hidden" name="date" id="date" value="2017-07-30" />
-                                       <input type="hidden" id="date_today" value="2017-07-30" /> -->
+
                                     </div>
                                  </div>
 
@@ -212,6 +211,35 @@
                            </div>
                         </div> -->
 
+                        <form>
+                           <select id="filter-year" style="width:40%;">
+                              <!-- <option value="">Select Year</option> -->
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
+                              <option value="2018">2018</option>
+                              <option value="2019">2019</option>
+                           </select>
+                        </form>
+
+                        <form>
+                           <select id="filter-month" style="width:40%;">
+                              <!-- <option value="">Select Month</option> -->
+                              <option value="01">Jan</option>
+                              <option value="02">Feb</option>
+                              <option value="03">Mar</option>
+                              <option value="04">Apr</option>
+                              <option value="05">May</option>
+                              <option value="06">Jun</option>
+                              <option value="07">Jul</option>
+                              <option value="08">Aug</option>
+                              <option value="09">Sep</option>
+                              <option value="10">Oct</option>
+                              <option value="11">Nov</option>
+                              <option value="12">Dec</option>
+                           </select>
+                        </form>
+
                         <div id="table">
                            <table id="example" class="display" cellspacing="0" width="100%">
                               <thead>
@@ -256,6 +284,14 @@
       <!-- Tables JavaScript -->
       <script src="/scripts/tables.js"></script>
       <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+      <script type="text/javascript">
+         window.onload = function init() {
+            jQuery('#filter-year').find('option[value="'+ new Date().getFullYear() + '"]').attr('selected', 'selected')
+
+            document.getElementById('filter-month').options[new Date().getMonth()].selected = true
+         }
+      </script>
 
    </body>
 
