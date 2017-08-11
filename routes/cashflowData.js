@@ -11,13 +11,13 @@ module.exports = (db, Data) => {
       let newData = { "data": []}
 
       data.forEach((element, index, array) => {
-        let dataItem = [
-          `${element['date']}`,
-          `${element['amount']}`,
-          `${element['category']}`,
-          `${element['note']}`,
-          `${element['_id']}`
-        ]
+        let dataItem = {
+          DT_RowId: element['_id'],
+          date: element['date'],
+          amount: `${element['amount']}`,
+          category: element['category'],
+          note: element['note']
+          }
         newData["data"].push(dataItem)
       })
 
