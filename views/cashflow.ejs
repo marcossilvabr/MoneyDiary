@@ -111,6 +111,7 @@
                                  <i class="fa fa-usd" aria-hidden="true"></i>
                                  <span>Total Available:</span>
                                  <span class="append"></span>
+                                 <i class="fa fa-info-circle text-primary" data-placement="bottom" data-toggle="popover" title="" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
                               </div>
                               <div id="add-tr-buttons">
                                  <button type="button" class="btn btn-outline btn-success" id="trigger-add-income">+ Add Income</button>
@@ -266,6 +267,8 @@
             </div>
          </div>
 
+
+
       <!-- jQuery -->
       <script src="/vendor/jquery/jquery.js"></script>
 
@@ -291,6 +294,11 @@
 
             document.getElementById('filter-month').options[new Date().getMonth()].selected = true
          }
+      </script>
+      <script>
+         $(document).ready(function(){
+             $('[data-toggle="popover"]').popover();
+         });
       </script>
 
    </body>
