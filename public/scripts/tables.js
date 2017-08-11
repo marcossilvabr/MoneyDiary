@@ -109,7 +109,10 @@ $(document).ready(function() {
         console.log(id)
         $.ajax ({
             method: 'POST',
-            url: `/cashflowData/delete/${id}`
+            url: `/cashflowData/delete/${id}`,
+            success: () => {
+              window.location.reload(true);
+            }
         })
     } );
 
