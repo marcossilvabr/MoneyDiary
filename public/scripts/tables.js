@@ -110,11 +110,9 @@ $(document).ready(function() {
         $.ajax ({
             method: 'POST',
             url: `/cashflowData/delete/${id}`,
-            success: () => {
-              window.location.reload(true);
-            }
         })
-    } );
+        $('#example').DataTable().ajax.reload()
+    })
 
 })
 
