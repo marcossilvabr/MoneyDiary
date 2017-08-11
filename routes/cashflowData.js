@@ -26,7 +26,7 @@ module.exports = (db, Data) => {
   });
 
   router.post("/", (req, res) => {
-    
+
     let category = req.body.category
 
     category.forEach((index) => {
@@ -43,15 +43,17 @@ module.exports = (db, Data) => {
 
     data.save((err) => {
       if (err)
-        res.send(err);
+        res.send(err)
 
-        res.redirect('back');
-    });
+        res.redirect('back')
+    })
   })
 
   router.post("/delete/:id", (req, res) => {
-    let id = req.params.id
-    db.datas.remove({ _id: id })
+    Data.remove({ _id: req.params.id }, (err) => {
+      if (err)
+        throw(err)
+    })
   })
 
   return router
