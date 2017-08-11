@@ -6,6 +6,13 @@ $(document).ready(function() {
         "dom": 'rtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
+        "columns": [
+            { "data": "date" },
+            { "data": "amount" },
+            { "data": "category" },
+            { "data": "note" },
+            ],
+
 
         initComplete: function () {
             this.api().columns(0).every( function () {
