@@ -26,8 +26,7 @@ module.exports = (db, Data) => {
   });
 
   router.post("/", (req, res) => {
-    let amount = req.body.amount
-    let note = req.body.note
+    
     let category = req.body.category
 
     category.forEach((index) => {
@@ -38,8 +37,8 @@ module.exports = (db, Data) => {
 
     let data = new Data
     data.date = `${(new Date()).getFullYear()}/${(new Date()).getMonth()+1}/${(new Date()).getDate()}`
-    data.amount = amount
-    data.note = note
+    data.amount = req.body.amount
+    data.note = req.body.note
     data.category = category
 
     data.save((err) => {
@@ -50,7 +49,7 @@ module.exports = (db, Data) => {
     });
   })
 
-  router.delete("/delete/:id", (req, res) => {
+  router.post("/delete/:id", (req, res) => {
     let id = req.params.id
     db.datas.remove({ _id: id })
   })
