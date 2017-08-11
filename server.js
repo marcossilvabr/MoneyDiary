@@ -13,6 +13,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const user = require('./routes/user')
+
 // const MongoClient = require('mongodb').MongoClient
 const MongoURI = 'mongodb://localhost:27017/moneyDiary'
 const mongoose = require('mongoose')
@@ -113,13 +115,7 @@ app.get("/investment", (req, res) => {
 
 // --> User Handlers <-- //
 
-app.get("/register", (req, res) => {
-  res.render('register')
-})
-
-app.get("/login", (req, res) => {
-  res.render('login')
-})
+app.use('user', user)
 
 
 // Port Listener
