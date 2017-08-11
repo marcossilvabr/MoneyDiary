@@ -21,6 +21,7 @@ let db = mongoose.connect(MongoURI, {
 });
 // Mongoose schema
 let Data
+let User
 
 // db connection and schema storage
 db.on('error', console.error.bind(console, 'connection error:'))
@@ -30,10 +31,18 @@ db.once('open', () => {
   let adderSchema = mongoose.Schema({
     date: String,
     amount: Number,
-    category: String,
+    category: { type: String, required: true },
     note: { type: String, default: "N/A" },
   })
   Data = mongoose.model('Data', adderSchema)
+
+  let userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String
+  })
+  User = mongoose.model('User', userSchema)
 
 })
 
