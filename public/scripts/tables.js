@@ -3,8 +3,9 @@ $(document).ready(function() {
         ajax: {
             url: '/cashflowData'
         },
-        "dom": 'lfrtip',
+        "dom": 'rtip',
         "order": [[0, "desc"]],
+        "iDisplayLength": 50,
 
         initComplete: function () {
             this.api().columns(0).every( function () {

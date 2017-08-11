@@ -116,21 +116,12 @@ body {
   }
 }
 .btn-outline {
-  color: inherit;
+  color: black;
   background-color: transparent;
   transition: all .5s;
 }
-.btn-primary.btn-outline {
-  color: #428bca;
-}
-.btn-success.btn-outline {
-  color: #5cb85c;
-}
 .btn-info.btn-outline {
   color: #5bc0de;
-}
-.btn-warning.btn-outline {
-  color: #f0ad4e;
 }
 .btn-danger.btn-outline {
   color: #d9534f;
@@ -242,7 +233,7 @@ table.dataTable thead .sorting:after {
   font-size: 40px;
 }
 .panel-blue {
-  border-color: #2d6488;
+  border: 1px solid;
 }
 .panel-blue > .panel-heading {
   border-color: #2d6488;
@@ -256,7 +247,7 @@ table.dataTable thead .sorting:after {
   color: darkblue;
 }
 .panel-green {
-  border-color: #1cc09f;
+  border: 1px solid;
 }
 .panel-green > .panel-heading {
   border-color: #1cc09f;
@@ -284,12 +275,12 @@ table.dataTable thead .sorting:after {
   color: #b52b27;
 }
 .panel-yellow {
-  border-color: #629a67;
+  border: 1px solid;
 }
 .panel-yellow > .panel-heading {
-  border-color: #629a67;
+  border-color: #008f71;
   color: white;
-  background-color: #629a67;
+  background-color: #008f71;
 }
 .panel-yellow > a {
   color: #629a67;
@@ -505,4 +496,42 @@ table.dataTable thead .sorting:after {
 #submit-button {
   float: right;
   margin: 4px;
+}
+
+#filter-year {
+    /* Size and position */
+    /*position: relative;*/
+    float: left;
+    width: auto;
+    margin: 10px 0 10px 1em;
+
+    /* Styles */
+    background: #fff;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+    cursor: pointer;
+    outline: none;
+
+    /* Font settings */
+    font-weight: bold;
+}
+
+#filter-month {
+    /* Size and position */
+    /*position: relative;*/
+    float: left;
+    width: auto;
+    margin: 10px 0 10px 1em;
+
+    /* Styles */
+    background: #fff;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+    cursor: pointer;
+    outline: none;
+
+    /* Font settings */
+    font-weight: bold;
 }
