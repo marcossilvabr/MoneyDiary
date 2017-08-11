@@ -554,3 +554,29 @@ table.dataTable thead .sorting:after {
     /* Font settings */
     font-weight: bold;
 }
+
+#button-delete {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  float: right;
+  width: auto;
+  margin: 10px 15px 10px 1em;
+  background-color: #f12d58;
+  border-color: #f12d58;
+  color: white;
+}
+
+#button-delete:hover {
+  color: #fff;
+  background-color: #b7002f;
+  border-color: #b7002f;
+}
