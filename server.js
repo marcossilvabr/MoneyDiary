@@ -74,7 +74,9 @@ app.post("/cashflowData", (req, res) => {
   let category = req.body.category
 
   category.forEach((index) => {
-    category = index
+    if ( index != '' ) {
+      category = index
+    }
   })
 
   let data = new Data
