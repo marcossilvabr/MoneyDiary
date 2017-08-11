@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var evertyhing = $('#example').DataTable({
+    var everything = $('#example').DataTable({
         ajax: {
             url: '/cashflowData'
         },
@@ -15,7 +15,9 @@ $(document).ready(function() {
                             $(this).val());
                     var valMonth = $.fn.dataTable.util.escapeRegex(
                             $("#filter-month").val());
-                    $('#example').DataTable().search( val + "/" +valMonth+ "/").draw();
+                    var valCat = $.fn.dataTable.util.escapeRegex(
+                            $("#filter-category").val());
+                    $('#example').DataTable().search( val + "/" +valMonth+ "/ " + valCat ).draw();
                 })
             })
             this.api().columns(0).every( function () {
@@ -25,7 +27,21 @@ $(document).ready(function() {
                             $(this).val());
                     var valYear = $.fn.dataTable.util.escapeRegex(
                             $("#filter-year").val());
-                    $('#example').DataTable().search( valYear + "/" +val+ "/" ).draw();
+                    var valCat = $.fn.dataTable.util.escapeRegex(
+                            $("#filter-category").val());
+                    $('#example').DataTable().search( valYear + "/" +val+ "/ " + valCat ).draw();
+                })
+            })
+            this.api().columns(2).every( function () {
+                var column = this;
+                var select = $("#filter-category").on( 'change', function () {
+                    var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val());
+                    var valYear = $.fn.dataTable.util.escapeRegex(
+                            $("#filter-year").val());
+                    var valMonth = $.fn.dataTable.util.escapeRegex(
+                            $("#filter-month").val());
+                    $('#example').DataTable().search( valYear + "/" +valMonth+ "/ " + val ).draw();
                 })
             })
         },
@@ -64,7 +80,24 @@ $(document).ready(function() {
 
             $("#wallet-balance .append").html( '$' + pageTotal );
         }
+
     }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
+
+    $('#example tbody').on( 'click', 'tr', function () {
+    if ( $(this).hasClass('selected') ) {
+        $(this).removeClass('selected');
+        console.log(this)
+    }
+    else {
+        everything.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+        console.log(this)
+        }
+    } );
+
+    // $('#button-delete').on( 'click', function () {
+
+    // } );
 
 })
 
@@ -72,22 +105,16 @@ $(document).ready(function() {
 
 
 
+    // $('#example tbody').on( 'click', 'tr', function () {
+    //     if ( $(this).hasClass('selected') ) {
+    //         $(this).removeClass('selected');
+    //     }
+    //     else {
+    //         table.$('tr.selected').removeClass('selected');
+    //         $(this).addClass('selected');
+    //     }
+    // } );
 
-//     $('#example tbody').on( 'click', 'tr', function () {
-//         if ( $(this).hasClass('selected') ) {
-//             $(this).removeClass('selected');
-//         }
-//         else {
-//             table.$('tr.selected').removeClass('selected');
-//             $(this).addClass('selected');
-//         }
-//     } );
-
-//     $('#button').click( function () {
-//         table.row('.selected').remove().draw( false );
-//     } );
-
-
-// } );
-
-// } );
+    // $('#button').click( function () {
+    //     table.row('.selected').remove().draw( false );
+    // } );
