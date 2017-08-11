@@ -50,7 +50,7 @@ module.exports = (db, Data) => {
     });
   })
 
-  router.delete("/delete/:id", (req, res) => {
+  router.post("/delete/:id", (req, res) => {
     let id = req.params.id
     db.datas.remove({ _id: id })
   })

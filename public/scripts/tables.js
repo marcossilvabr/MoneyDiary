@@ -90,21 +90,28 @@ $(document).ready(function() {
 
     }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
 
+    var id = "test"
+
     $('#example tbody').on( 'click', 'tr', function () {
     if ( $(this).hasClass('selected') ) {
         $(this).removeClass('selected');
-        console.log(this)
+        // console.log(this).id
     }
     else {
         everything.$('tr.selected').removeClass('selected');
         $(this).addClass('selected');
-        console.log(this)
+        id = this.id
         }
     } );
 
-    // $('#button-delete').on( 'click', function () {
-
-    // } );
+    $('#button-delete').on( 'click', function (event) {
+        event.preventDefault()
+        console.log(id)
+        $.ajax ({
+            method: 'POST',
+            url: `/cashflowData/delete/${id}`
+        })
+    } );
 
 })
 
