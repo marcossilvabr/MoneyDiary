@@ -5,16 +5,12 @@ const bcrypt         = require('bcrypt')
 const passport       = require('passport')
 const LocalStrategy  = require('passport-local').Strategy
 const flash          = require('connect-flash')
-const cookieSession  = require('cookie-session')
+// const expressSession = require('express-session')
 
+// router.use(express.session({ secret: 'secret' }))
 router.use(passport.initialize())
 router.use(passport.session())
 router.use(flash())
-router.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2']
-}));
-
 
 module.exports = (User) => {
 
@@ -32,6 +28,7 @@ module.exports = (User) => {
   });
 
   // Passport Login Logic
+
   passport.use(new LocalStrategy(
     (username, password, done) => {
       User.findOne({ username: username }, (err, user) => {
@@ -68,7 +65,7 @@ module.exports = (User) => {
       if (err)
         res.send(err);
 
-      req.session.user_id = user['_id']
+      // req.session.user_id = user['_id']
       res.redirect('./register');
     });
 
@@ -79,7 +76,7 @@ module.exports = (User) => {
   })
 
   router.post("/login", passport.authenticate('local', {
-    successRedirect: './cashflow',
+    successRedirect: './index',
     failureRedirect: './login',
     failureFlash: true
   }))

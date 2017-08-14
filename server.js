@@ -2,16 +2,22 @@
 
 require('dotenv').config();
 
-const PORT       = process.env.PORT || 8080
-const ENV        = process.env.ENV || "development"
-const express    = require("express")
-const app        = express()
-const bodyParser = require('body-parser')
-const bcrypt     = require('bcrypt');
+const PORT           = process.env.PORT || 8080
+const ENV            = process.env.ENV || "development"
+const express        = require("express")
+const app            = express()
+const bodyParser     = require('body-parser')
+// const bcrypt         = require('bcrypt');
+// const passport       = require('passport')
+// const LocalStrategy  = require('passport-local').Strategy
+// const expressSession = require('express-session')
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.session({ secret: 'secret' }));
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 // const MongoClient = require('mongodb').MongoClient
 const MongoURI = 'mongodb://localhost:27017/moneyDiary'
@@ -45,8 +51,6 @@ db.once('open', () => {
   app.use('/cashflowData', cashflowData(Data))
 
   // --> User Handlers <-- //
-  // Passport
-
 
   // User Routes
   const user = require('./routes/user.js')
