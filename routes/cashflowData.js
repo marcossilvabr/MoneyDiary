@@ -36,7 +36,7 @@ module.exports = (db, Data) => {
     })
 
     let data = new Data
-    data.date = `${(new Date()).getFullYear()}/${(new Date()).getMonth()+1}/${(new Date()).getDate()}`
+    data.date = req.body.djoined
     data.amount = req.body.amount
     data.note = req.body.note
     data.category = category

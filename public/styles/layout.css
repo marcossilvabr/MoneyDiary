@@ -580,3 +580,34 @@ table.dataTable thead .sorting:after {
   background-color: #b7002f;
   border-color: #b7002f;
 }
+
+#datepicker {
+  position: relative;
+  float: left;
+  height: 0px;
+  width: 0px;
+  z-index: 9999;
+}
+
+#datepicker-show {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  float: left;
+  width: auto;
+  margin: 0 0 0 5px;
+  background-color: #388e3c;
+  border-color: #388e3c;
+  color: white;
+}
+
+#category-income {
+  float: left;
+}
+
+#category-expenses {
+  float: left;
+}

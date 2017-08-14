@@ -28,6 +28,9 @@
       <!-- Table CSS -->
       <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
 
+      <!-- Jquery UI CSS -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
    </head>
 
    <body>
@@ -141,7 +144,7 @@
                                  </div>
 
                                  <div id="transaction-date" class="clearfix">
-                                    <select id="category-expenses" name="category" style="width:40%;">
+                                    <select id="category-expenses" name="category" style="width:30%;">
                                        <option value="">Select category</option>
                                        <option value="Car">Car</option>
                                        <option value="Clothes & Shoes">Clothes & Shoes</option>
@@ -160,13 +163,19 @@
                                        <option value="Phone/TV/Internet/Utilities">Phone/TV/Internet/Utilities</option>
                                        <option value="Taxes">Taxes</option>
                                     </select>
-                                    <select id="category-income" name="category" style="width:40%;">
+                                    <select id="category-income" name="category" style="width:30%;">
                                        <option value="">Select category</option>
                                        <option value="Bonus">Bonus</option>
                                        <option value="Interest">Interest</option>
                                        <option value="Other">Other</option>
                                        <option value="Salary">Salary</option>
                                     </select>
+
+
+                                    <button type="button" class="fa fa-calendar" id="datepicker-show" aria-hidden="true"></button>
+                                    <div id = "datepicker"></div>
+                                    <input id="djoined" name="djoined" type="hidden" class="text" type="date">
+
 
                               <!--  <span class="triggers-wrap">
                                        Date: <a href="javascript:void(0);" id="transaction-date-trigger"><span id="tr-date">30 July</span></a>
@@ -184,6 +193,7 @@
                               </div>
                            </div>
                         </div>
+
 
 
                   <!--  <div id="cashflow">
@@ -226,15 +236,15 @@
                         <form>
                            <select id="filter-month">
                               <!-- <option value="">Select Month</option> -->
-                              <option value="1">Jan</option>
-                              <option value="2">Feb</option>
-                              <option value="3">Mar</option>
-                              <option value="4">Apr</option>
-                              <option value="5">May</option>
-                              <option value="6">Jun</option>
-                              <option value="7">Jul</option>
-                              <option value="8">Aug</option>
-                              <option value="9">Sep</option>
+                              <option value="01">Jan</option>
+                              <option value="02">Feb</option>
+                              <option value="03">Mar</option>
+                              <option value="04">Apr</option>
+                              <option value="05">May</option>
+                              <option value="06">Jun</option>
+                              <option value="07">Jul</option>
+                              <option value="08">Aug</option>
+                              <option value="09">Sep</option>
                               <option value="10">Oct</option>
                               <option value="11">Nov</option>
                               <option value="12">Dec</option>
@@ -322,6 +332,9 @@
       <script src="/scripts/tables.js"></script>
       <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
 
+      <!-- Datepicker UI Javascript -->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
       <script type="text/javascript">
          window.onload = function init() {
             jQuery('#filter-year').find('option[value="'+ new Date().getFullYear() + '"]').attr('selected', 'selected')
@@ -333,6 +346,24 @@
          $(document).ready(function(){
              $('[data-toggle="popover"]').popover();
          });
+      </script>
+
+      <script>
+
+         $('#datepicker').hide()
+
+         $("#datepicker-show").click(function() {
+            $("#datepicker").toggle()
+         })
+
+         $( "#datepicker" ).datepicker({
+               dateFormat: 'dd/mm/yy',
+               altField: '#djoined',
+               altFormat: 'yy/mm/dd',
+               onSelect: function() {
+                  $('#datepicker').hide()
+               },
+            })
       </script>
 
    </body>
