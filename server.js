@@ -45,6 +45,10 @@ db.once('open', () => {
   app.use('/cashflowData', cashflowData(db, Data))
 
   // --> User Handlers <-- //
+  // Passport
+  
+
+  // User Routes
   const user = require('./routes/user.js')
   app.use('/user', user(db, User))
 
