@@ -1,7 +1,13 @@
 
-const router      = require('express').Router()
-const bodyParser  = require('body-parser')
-const bcrypt      = require('bcrypt');
+const router         = require('express').Router()
+const bodyParser     = require('body-parser')
+const bcrypt         = require('bcrypt')
+const passport       = require('passport')
+const expressSession = require('express-session');
+
+app.use(expressSession({secret: 'mySecretKey'}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 module.exports = (db, User) => {
@@ -11,6 +17,7 @@ module.exports = (db, User) => {
   })
 
   router.post("/register", (req, res) => {
+
 
     let user = new User
     user.firstName = req.body.firstName
@@ -22,7 +29,7 @@ module.exports = (db, User) => {
       if (err)
         res.send(err);
 
-      req.session.user_id = user['_id']  
+      req.session.user_id = user['_id']
       res.redirect('./register');
     });
 
