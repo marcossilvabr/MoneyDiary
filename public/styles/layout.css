@@ -611,3 +611,7 @@ table.dataTable thead .sorting:after {
 #category-expenses {
   float: left;
 }
+
+.negative-number {
+  color: red;
+}

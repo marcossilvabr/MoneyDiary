@@ -5,6 +5,8 @@ $("#trigger-add-income").click(function() {
   $('#trigger-add-expense').removeClass('active');
   $("#category-income").show();
   $("#category-expenses").hide();
+  $("#amount-form").val("")
+  $("#amount-form").attr("placeholder", "amount")
   return false;
 });
 $("#trigger-add-expense").click(function() {
@@ -14,6 +16,7 @@ $("#trigger-add-expense").click(function() {
   $('#trigger-add-expense').addClass('active');
   $("#category-income").hide();
   $("#category-expenses").show();
+  $("#amount-form").val("-")
   return false;
 });
 
