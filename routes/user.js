@@ -16,7 +16,7 @@ router.use(cookieSession({
 }));
 
 
-module.exports = (db, User) => {
+module.exports = (User) => {
 
   // Passport Serialize Functions
   passport.serializeUser((user, done) => {
@@ -31,41 +31,24 @@ module.exports = (db, User) => {
     });
   });
 
-  // Passport Registration Logic
-  passport.use('register', new LocalStrategy(
+  // Passport Login Logic
+  passport.use(new LocalStrategy(
     (username, password, done) => {
       User.findOne({ username: username }, (err, user) => {
         if (err) { return done(err); }
-
-  			// already exists
-  			if (user) {
-  					console.log(`User already exists with username: ${username}`);
-  					return done(null, false, req.flash('message','User Already Exists'));
-  			} else {
-  				// create the user if there is no user with that email
-  				var newUser = new User()
-  				newUser.username = username
-  				newUser.email = req.body.email
-  				newUser.password = bcrypt.hashSync(req.body.password, 10)
-
-  				// save the user
-  				newUser.save((err) => {
-  						if (err){
-  								console.log(`Error in Saving user: ${err}`)
-  								throw err;
-  						}
-  						console.log('User Registration succesful')
-  						return done(null, newUser);
-  				})
-  			}
-      })
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        let isValidPassword = (user, password) => {
+          return bcrypt.compareSync(password, user.password);
+        }
+        if (isValidPassword(user, password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
     }
-  ))
-
-  // Passport Login Logic
-
-
-
+  ));
 
 
   // -> Routes <- //
@@ -74,16 +57,32 @@ module.exports = (db, User) => {
     res.render('./register')
   })
 
-  router.post("/register", passport.authenticate('register', {
-    successRedirect: '/',
-    failureRedirect: '/register',
-    failureFlash : true
-  }));
+  router.post("/register", (req, res) => {
+
+    let user = new User
+    user.username = req.body.username
+    user.email = req.body.email
+    user.password = bcrypt.hashSync(req.body.password, 10)
+
+    user.save((err) => {
+      if (err)
+        res.send(err);
+
+      req.session.user_id = user['_id']
+      res.redirect('./register');
+    });
+
+  })
 
   router.get("/login", (req, res) => {
     res.render('./login')
   })
 
+  router.post("/login", passport.authenticate('local', {
+    successRedirect: './cashflow',
+    failureRedirect: './login',
+    failureFlash: true
+  }))
 
   return router
 }

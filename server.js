@@ -42,15 +42,15 @@ db.once('open', () => {
 
   // --> Cashflow Data Routing <-- //
   const cashflowData = require('./routes/cashflowData.js')
-  app.use('/cashflowData', cashflowData(db, Data))
+  app.use('/cashflowData', cashflowData(Data))
 
   // --> User Handlers <-- //
   // Passport
-  
+
 
   // User Routes
   const user = require('./routes/user.js')
-  app.use('/user', user(db, User))
+  app.use('/user', user(User))
 
 })
 
