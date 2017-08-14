@@ -4,17 +4,19 @@ const bodyParser     = require('body-parser')
 const bcrypt         = require('bcrypt')
 const passport       = require('passport')
 const LocalStrategy  = require('passport-local').Strategy
-const bCrypt         = require('bcrypt-nodejs')
-const expressSession = require('express-session');
-const flash          = require('connect-flash');
+const flash          = require('connect-flash')
+const cookieSession  = require('cookie-session')
 
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(flash())
-app.use(expressSession({secret: 'mySecretKey'}))
+router.use(passport.initialize())
+router.use(passport.session())
+router.use(flash())
+router.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 
 
-module.exports = (User) => {
+module.exports = (db, User) => {
 
   // Passport Serialize Functions
   passport.serializeUser((user, done) => {
@@ -30,7 +32,7 @@ module.exports = (User) => {
   });
 
   // Passport Registration Logic
-  passport.use(new LocalStrategy(
+  passport.use('register', new LocalStrategy(
     (username, password, done) => {
       User.findOne({ username: username }, (err, user) => {
         if (err) { return done(err); }
@@ -43,7 +45,7 @@ module.exports = (User) => {
   				// create the user if there is no user with that email
   				var newUser = new User()
   				newUser.username = username
-  				newUser.email = req.params.email
+  				newUser.email = req.body.email
   				newUser.password = bcrypt.hashSync(req.body.password, 10)
 
   				// save the user
