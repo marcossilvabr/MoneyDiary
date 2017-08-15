@@ -6,7 +6,8 @@ let adderSchema = mongoose.Schema({
   amount: Number,
   category: { type: String, required: true },
   note: { type: String, default: "N/A" },
-  
+  user: String
+
 })
 
 module.exports = mongoose.model('Data', adderSchema)
