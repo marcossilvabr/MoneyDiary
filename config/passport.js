@@ -4,12 +4,12 @@ const User            = require('../models/user');
 
 module.exports = (passport) => {
 
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.id)
   })
 
-  passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+  passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
       done(err, user)
     })
   })
@@ -23,15 +23,15 @@ module.exports = (passport) => {
     passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
   },
 
-  function(req, email, password, done) {
+  (req, email, password, done) => {
     if (email)
         email = email.toLowerCase() // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
     // asynchronous
-    process.nextTick(function() {
+    process.nextTick(() => {
       // if the user is not already logged in:
       if (!req.user) {
-        User.findOne({ 'local.email' :  email }, function(err, user) {
+        User.findOne({ 'local.email' :  email }, (err, user) => {
             // if there are any errors, return the error
           if (err)
             return done(err)
@@ -46,7 +46,7 @@ module.exports = (passport) => {
             newUser.local.email = email
             newUser.local.password = newUser.generateHash(password)
 
-            newUser.save(function(err) {
+            newUser.save((err) => {
               if (err)
                 return done(err)
 
@@ -59,7 +59,7 @@ module.exports = (passport) => {
       } else if ( !req.user.local.email ) {
         // ...presumably they're trying to connect a local account
         // BUT let's check if the email used to connect a local account is being used by another user
-        User.findOne({ 'local.email' :  email }, function(err, user) {
+        User.findOne({ 'local.email' :  email }, (err, user) => {
           if (err)
             return done(err);
 
@@ -70,9 +70,10 @@ module.exports = (passport) => {
             let user = req.user
             user.local.email = email
             user.local.password = user.generateHash(password)
-            user.save(function (err) {
+
+            user.save((err) => {
               if (err)
-                  return done(err)
+                return done(err)
 
               return done(null,user)
             });
@@ -95,13 +96,13 @@ module.exports = (passport) => {
     passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
   },
 
-  function(req, email, password, done) {
+  (req, email, password, done) => {
     if (email)
         email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
     // asynchronous
-    process.nextTick(function() {
-      User.findOne({ 'local.email' :  email }, function(err, user) {
+    process.nextTick(() => {
+      User.findOne({ 'local.email' :  email }, (err, user) => {
         // if there are any errors, return the error
         if (err)
           return done(err);
@@ -120,6 +121,5 @@ module.exports = (passport) => {
     });
 
   }));
-
 
 }
