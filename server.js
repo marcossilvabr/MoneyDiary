@@ -32,6 +32,9 @@ mongoose.connect(configDB.url, {
   useMongoClient: true
 });
 
+// Passport Configuration
+require('./config/passport')(passport)
+
 // --> Cashflow Data Routing <-- //
 const cashflowData = require('./routes/cashflowData.js')
 app.use('/cashflowData', cashflowData())
@@ -39,7 +42,7 @@ app.use('/cashflowData', cashflowData())
 
 // --> User Routing <-- //
 const user = require('./routes/user.js')
-app.use('/user', user())
+app.use('/user', user(passport))
 
 
 // -> Core Routes <- //
