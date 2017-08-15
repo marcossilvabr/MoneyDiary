@@ -615,3 +615,11 @@ table.dataTable thead .sorting:after {
 .negative-number {
   color: red;
 }
+
+.go {
+  background-color: #1cc09f !important;
+}
+
+.get-details {
+  background-color: #1cc09f !important;
+}
