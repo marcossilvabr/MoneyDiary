@@ -43,8 +43,6 @@ app.get("/landingPage", (req, res) => {
 })
 // Home Page
 app.get("/", isLoggedIn, (req, res) => {
-  console.log('Cookies: ', req.cookies)
-  console.log('Id:', req.user._id);
   res.render('index', {
     user : req.user
   })
