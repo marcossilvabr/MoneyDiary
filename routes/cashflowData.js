@@ -6,11 +6,12 @@ const bodyParser  = require('body-parser')
 module.exports = () => {
 
   router.get("/", (req, res) => {
-    Data.find((err, data) => {
+    let user = req.user._id
+    Data.find({ user: user }, (err, data) => {
       if (err)
         res.send(err);
 
-    let newData = { "data": []}
+    let newData = { "data": [] }
 
     data.forEach((element, index, array) => {
       let dataItem = {
