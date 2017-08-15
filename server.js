@@ -42,25 +42,33 @@ app.get("/landingPage", (req, res) => {
   res.render('landingPage')
 })
 // Home Page
-app.get("/", (req, res) => {
-  res.render('index')
+app.get("/", isLoggedIn, (req, res) => {
+  res.render('index', {
+    user : req.user
+  })
 })
 // Cashflow
-app.get("/cashflow", (req, res) => {
-  res.render('cashflow')
+app.get("/cashflow", isLoggedIn, (req, res) => {
+  res.render('cashflow', {
+    user : req.user
+  })
 })
 // Mortgage Calculator
-app.get("/mortgage", (req, res) => {
-  res.render('mortgage')
+app.get("/mortgage", isLoggedIn, (req, res) => {
+  res.render('mortgage', {
+    user : req.user
+  })
 })
 // Investment Calculator
-app.get("/investment", (req, res) => {
-  res.render('investment')
+app.get("/investment", isLoggedIn, (req, res) => {
+  res.render('investment', {
+    user : req.user
+  })
 })
 
 // --> Cashflow Data Routing <-- //
 const cashflowData = require('./routes/cashflowData.js')
-app.use('/cashflowData', cashflowData())
+app.use('/cashflowData', cashflowData(passport))
 
 // --> User Routing <-- //
 const user = require('./routes/user.js')
@@ -71,7 +79,7 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next()
 
-  res.redirect('/')
+  res.redirect('/landingPage')
 }
 
 // -> Port Listener <- //
