@@ -5,7 +5,7 @@ const bodyParser  = require('body-parser')
 module.exports = (passport) => {
 
   // locally --------------------------------
-  
+
   // LOGIN ===============================
   router.get('/login', (req, res) => {
     res.render('login.ejs', { message: req.flash('loginMessage') })
@@ -34,13 +34,6 @@ module.exports = (passport) => {
       res.redirect('/landingPage')
   });
 
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next()
-
-    res.redirect('/')
-  }
-
   // PROFILE SECTION =========================
   router.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile.ejs', {
@@ -48,6 +41,7 @@ module.exports = (passport) => {
     })
   })
 
+  // Login Checker
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
       return next();
