@@ -3,6 +3,14 @@ $(document).ready(function() {
         ajax: {
             url: '/cashflowData'
         },
+        "columnDefs": [{
+            "targets": 1,
+            "createdCell": function (td, cellData, rowData, row, col) {
+                if (cellData < 1) {
+                    $(td).addClass('negative-number')
+                }
+            }
+        }],
         "dom": 'rtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
@@ -113,23 +121,4 @@ $(document).ready(function() {
         })
         $('#example').DataTable().ajax.reload()
     })
-
 })
-
-
-
-
-
-    // $('#example tbody').on( 'click', 'tr', function () {
-    //     if ( $(this).hasClass('selected') ) {
-    //         $(this).removeClass('selected');
-    //     }
-    //     else {
-    //         table.$('tr.selected').removeClass('selected');
-    //         $(this).addClass('selected');
-    //     }
-    // } );
-
-    // $('#button').click( function () {
-    //     table.row('.selected').remove().draw( false );
-    // } );
