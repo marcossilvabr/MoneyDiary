@@ -2,23 +2,34 @@
 
 require('dotenv').config();
 
-const PORT       = process.env.PORT || 8080
-const ENV        = process.env.ENV || "development"
-const express    = require("express")
-const app        = express()
-const bodyParser = require('body-parser')
-const bcrypt     = require('bcrypt');
+const PORT         = process.env.PORT || 8080
+const ENV          = process.env.ENV || "development"
+const express      = require("express")
+const app          = express()
+const mongoose     = require('mongoose')
 
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+const passport     = require('passport')
+const flash        = require('connect-flash')
+const session      = require('express-session')
+const bodyParser   = require('body-parser')
+const cookieParser = require('cookie-parser')
+const bcrypt       = require('bcrypt')
 
-const mongoose = require('mongoose')
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(bodyParser())
+app.use(cookieParser())
+app.use(session({ secret: 'secret' }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+
+// Database Configuration
 const configDB = require('./config/database.js')
-// let db =
 mongoose.connect(configDB.url, {
   useMongoClient: true
 });
+
 
   // let adderSchema = mongoose.Schema({
   //   date: String,
@@ -28,21 +39,21 @@ mongoose.connect(configDB.url, {
   // })
   // let Data = mongoose.model('Data', adderSchema)
 
-  let userSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String
-  })
-  let User = mongoose.model('User', userSchema)
+  // let userSchema = mongoose.Schema({
+  //   firstName: String,
+  //   lastName: String,
+  //   email: String,
+  //   password: String
+  // })
+  // let User = mongoose.model('User', userSchema)
 
-  // --> Cashflow Data Routing <-- //
-  const cashflowData = require('./routes/cashflowData.js')
-  app.use('/cashflowData', cashflowData())
+// --> Cashflow Data Routing <-- //
+const cashflowData = require('./routes/cashflowData.js')
+app.use('/cashflowData', cashflowData())
 
-  // --> User Handlers <-- //
-  const user = require('./routes/user.js')
-  app.use('/user', user(User))
+// --> User Handlers <-- //
+const user = require('./routes/user.js')
+app.use('/user', user())
 
 
 

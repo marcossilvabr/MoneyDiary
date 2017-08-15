@@ -12,19 +12,8 @@ module.exports = (User) => {
 
   router.post("/register", (req, res) => {
 
-    let user = new User
-    user.firstName = req.body.firstName
-    user.lastName = req.body.lastName
-    user.email = req.body.email
-    user.password = bcrypt.hashSync(req.body.password, 10)
 
-    user.save((err) => {
-      if (err)
-        res.send(err);
 
-      req.session.user_id = user['_id']
-      res.redirect('./register');
-    });
 
   })
 
@@ -35,3 +24,18 @@ module.exports = (User) => {
 
   return router
 }
+
+
+  // let user = new User
+  // user.firstName = req.body.firstName
+  // user.lastName = req.body.lastName
+  // user.email = req.body.email
+  // user.password = bcrypt.hashSync(req.body.password, 10)
+  //
+  // user.save((err) => {
+  //   if (err)
+  //     res.send(err);
+  //
+  //   req.session.user_id = user['_id']
+  //   res.redirect('./register');
+  // });
