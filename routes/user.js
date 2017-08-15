@@ -1,41 +1,50 @@
 
 const router      = require('express').Router()
 const bodyParser  = require('body-parser')
-const bcrypt      = require('bcrypt-nodejs');
+const bcrypt      = require('bcrypt-nodejs')
 
 
-module.exports = (User) => {
+module.exports = (passport) => {
 
-  router.get("/register", (req, res) => {
-    res.render('./register')
-  })
+  // locally --------------------------------
+    // LOGIN ===============================
+    // show the login form
+    router.get('/login', (req, res) => {
+      res.render('login.ejs', { message: req.flash('loginMessage') })
+    });
 
-  router.post("/register", (req, res) => {
+    // process the login form
+    // router.post('/login', passport.authenticate('local-login', {
+    //   successRedirect : '/profile', // redirect to the secure profile section
+    //   failureRedirect : '/login', // redirect back to the signup page if there is an error
+    //   failureFlash : true // allow flash messages
+    // }));
 
+    // SIGNUP =================================
+    // show the signup form
+    router.get('/register', (req, res) => {
+      res.render('register.ejs', { message: req.flash('signupMessage') })
+    });
 
+    // process the signup form
+    // router.post('/register', passport.authenticate('local-signup', {
+    //   successRedirect : '/profile', // redirect to the secure profile section
+    //   failureRedirect : '/signup', // redirect back to the signup page if there is an error
+    //   failureFlash : true // allow flash messages
+    // }));
 
+    // LOGOUT ==============================
+    router.get('/logout', (req, res) => {
+        req.logout()
+        res.redirect('/landingPage')
+    });
 
-  })
+    function isLoggedIn(req, res, next) {
+      if (req.isAuthenticated())
+          return next()
 
-  router.get("/login", (req, res) => {
-    res.render('./login')
-  })
-
+      res.redirect('/')
+    }
 
   return router
 }
-
-
-  // let user = new User
-  // user.firstName = req.body.firstName
-  // user.lastName = req.body.lastName
-  // user.email = req.body.email
-  // user.password = bcrypt.hashSync(req.body.password, 10)
-  //
-  // user.save((err) => {
-  //   if (err)
-  //     res.send(err);
-  //
-  //   req.session.user_id = user['_id']
-  //   res.redirect('./register');
-  // });
