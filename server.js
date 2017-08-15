@@ -35,22 +35,12 @@ mongoose.connect(configDB.url, {
 // Passport Configuration
 require('./config/passport')(passport)
 
-// --> Cashflow Data Routing <-- //
-const cashflowData = require('./routes/cashflowData.js')
-app.use('/cashflowData', cashflowData())
-
-
-// --> User Routing <-- //
-const user = require('./routes/user.js')
-app.use('/user', user(passport))
-
 
 // -> Core Routes <- //
 // Landing Page
 app.get("/landingPage", (req, res) => {
   res.render('landingPage')
 })
-
 // Home Page
 app.get("/", (req, res) => {
   res.render('index')
@@ -68,11 +58,20 @@ app.get("/investment", (req, res) => {
   res.render('investment')
 })
 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
+// --> Cashflow Data Routing <-- //
+const cashflowData = require('./routes/cashflowData.js')
+app.use('/cashflowData', cashflowData())
 
-    res.redirect('/');
+// --> User Routing <-- //
+const user = require('./routes/user.js')
+app.use('/user', user(passport))
+
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next()
+
+  res.redirect('/')
 }
 
 // -> Port Listener <- //

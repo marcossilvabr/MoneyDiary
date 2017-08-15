@@ -40,5 +40,20 @@ module.exports = (passport) => {
       res.redirect('/')
     }
 
+    // PROFILE SECTION =========================
+    router.get('/profile', isLoggedIn, (req, res) => {
+      res.render('profile.ejs', {
+          user : req.user
+      })
+    })
+
+
+    function isLoggedIn(req, res, next) {
+      if (req.isAuthenticated())
+        return next();
+
+      res.redirect('/');
+    }
+
   return router
 }
