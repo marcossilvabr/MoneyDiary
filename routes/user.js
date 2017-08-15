@@ -14,7 +14,7 @@ router.use(flash())
 
 module.exports = (User) => {
 
-  // Passport Serialize Functions
+  Passport Serialize Functions
   passport.serializeUser((user, done) => {
     console.log(`serializing user: ${user}`)
     done(null, user.id)
