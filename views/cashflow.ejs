@@ -34,6 +34,7 @@
    </head>
 
    <body>
+
       <div id="wrapper">
 
          <!-- Navigation -->
@@ -96,39 +97,31 @@
          <div id="page-wrapper">
             <div class="container-fluid">
                <div class="row">
-                  <div class="col-lg-12">
-                     <!-- <h1 class="page-header">Cash Flow</h1> -->
-                  </div>
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <h2 class="page-header">Cash Flow</h2>
+                        <div class="btn-group"></div>
+                     </div>
 
-                  <!-- <div class="col-lg-10"> -->
-                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                           <!-- <i class="fa fa-check-square-o fa-2x"></i> -->
-                           <h2 class="page-header">Cash Flow</h2>
-                           <div class="btn-group"></div>
-                        </div>
-
-                        <div id="wrapper">
-                           <div id="signs">
-                              <div id="wallet-balance">
-                                 <i class="fa fa-usd" aria-hidden="true"></i>
-                                 <span>Total Available:</span>
-                                 <span class="append"></span>
-                                 <i class="fa fa-info-circle text-primary" data-placement="bottom" data-toggle="popover" title="" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
-                              </div>
-                              <div id="add-tr-buttons">
-                                 <button type="button" class="btn btn-outline btn-success" id="trigger-add-income">+ Add Income</button>
-                                 <button type="button" class="btn btn-outline btn-warning" id="trigger-add-expense">- Add Expense</button>
-                              </div>
+                     <div id="wrapper">
+                        <div id="signs">
+                           <div id="wallet-balance">
+                              <i class="fa fa-usd" aria-hidden="true"></i>
+                              <span>Total Available:</span>
+                              <span class="append"></span>
+                              <i class="fa fa-info-circle text-primary" data-placement="bottom" data-toggle="popover" title="" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
+                           </div>
+                           <div id="add-tr-buttons">
+                              <button type="button" class="btn btn-outline btn-success" id="trigger-add-income">+ Add Income</button>
+                              <button type="button" class="btn btn-outline btn-warning" id="trigger-add-expense">- Add Expense</button>
                            </div>
                         </div>
+                     </div>
 
-                        <div id="container" class="clearfix">
-                           <div id="main-container">
-                              <div id="adder">
-
+                     <div id="container" class="clearfix">
+                        <div id="main-container">
+                           <div id="adder">
                               <form id="transaction" action="/cashflowData" method="POST">
-
                                  <div id="fields-container">
                                     <div class="labels expenses">
                                        <div class="form-group input-group" style="float: left">
@@ -138,7 +131,6 @@
                                        <div class="form-group" style="float: right">
                                           <input placeholder="note (optional)" class="form-control" name="note">
                                        </div>
-
                                     </div>
                                  </div>
 
@@ -170,15 +162,10 @@
                                        <option value="Salary">Salary</option>
                                     </select>
 
-
                                     <button type="button" class="fa fa-calendar" id="datepicker-show" aria-hidden="true"></button>
                                     <div id = "datepicker"></div>
                                     <input id="djoined" name="djoined" type="hidden" class="text" type="date">
 
-
-                              <!--  <span class="triggers-wrap">
-                                       Date: <a href="javascript:void(0);" id="transaction-date-trigger"><span id="tr-date">30 July</span></a>
-                                    </span> -->
                                     <div id="adder-close">
                                        <button type="button" class="btn btn-warning">Cancel</button>
                                     </div>
@@ -186,15 +173,10 @@
                                        <input type="submit" form="transaction" class="btn btn-success" value="Add">
                                     </div>
                                  </div>
-
-                              <form>
-
-                              </div>
+                              </form>
                            </div>
                         </div>
-
-
-
+                     </div>
                   <!--  <div id="cashflow">
                            <div id="period" class="clearfix to-left">
                               <ul>
@@ -221,95 +203,92 @@
                               <button class="button s-1">Add category</button>
                            </div>
                         </div> -->
-                        <form>
-                           <select id="filter-year">
-                              <!-- <option value="">Select Year</option> -->
-                              <option value="2015">2015</option>
-                              <option value="2016">2016</option>
-                              <option value="2017">2017</option>
-                              <option value="2018">2018</option>
-                              <option value="2019">2019</option>
-                           </select>
-                        </form>
+                     <form>
+                        <select id="filter-year">
+                           <!-- <option value="">Select Year</option> -->
+                           <option value="2015">2015</option>
+                           <option value="2016">2016</option>
+                           <option value="2017">2017</option>
+                           <option value="2018">2018</option>
+                           <option value="2019">2019</option>
+                        </select>
+                     </form>
 
-                        <form>
-                           <select id="filter-month">
-                              <!-- <option value="">Select Month</option> -->
-                              <option value="01">Jan</option>
-                              <option value="02">Feb</option>
-                              <option value="03">Mar</option>
-                              <option value="04">Apr</option>
-                              <option value="05">May</option>
-                              <option value="06">Jun</option>
-                              <option value="07">Jul</option>
-                              <option value="08">Aug</option>
-                              <option value="09">Sep</option>
-                              <option value="10">Oct</option>
-                              <option value="11">Nov</option>
-                              <option value="12">Dec</option>
-                           </select>
-                        </form>
+                     <form>
+                        <select id="filter-month">
+                           <!-- <option value="">Select Month</option> -->
+                           <option value="01">Jan</option>
+                           <option value="02">Feb</option>
+                           <option value="03">Mar</option>
+                           <option value="04">Apr</option>
+                           <option value="05">May</option>
+                           <option value="06">Jun</option>
+                           <option value="07">Jul</option>
+                           <option value="08">Aug</option>
+                           <option value="09">Sep</option>
+                           <option value="10">Oct</option>
+                           <option value="11">Nov</option>
+                           <option value="12">Dec</option>
+                        </select>
+                     </form>
 
-                        <form>
-                           <select id="filter-category">
-                              <option value="">All Categories</option>
-                              <option disabled>---------EXPENSES---------</option>
-                              <option value="Car">Car</option>
-                              <option value="Clothes & Shoes">Clothes & Shoes</option>
-                              <option value="Eating Out & Coffee">Eating Out & Coffee</option>
-                              <option value="Education">Education</option>
-                              <option value="Entertainment">Entertainment</option>
-                              <option value="Food">Food/Groceries</option>
-                              <option value="Gas">Gas/Transportation</option>
-                              <option value="Holiday">Holiday</option>
-                              <option value="Home">Home</option>
-                              <option value="Insurance">Insurance</option>
-                              <option value="Kids">Kids</option>
-                              <option value="Medical">Medical</option>
-                              <option value="Misc">Misc</option>
-                              <option value="Mortgage">Mortgage/Rent</option>
-                              <option value="Phone">Phone/TV/Internet/Utilities</option>
-                              <option value="Taxes">Taxes</option>
-                              <option disabled>---------INCOMES---------</option>
-                              <option value="">Select category</option>
-                              <option value="Bonus">Bonus</option>
-                              <option value="Interest">Interest</option>
-                              <option value="Other">Other</option>
-                              <option value="Salary">Salary</option>
-                           </select>
-                        </form>
+                     <form>
+                        <select id="filter-category">
+                           <option value="">All Categories</option>
+                           <option disabled>---------EXPENSES---------</option>
+                           <option value="Car">Car</option>
+                           <option value="Clothes & Shoes">Clothes & Shoes</option>
+                           <option value="Eating Out & Coffee">Eating Out & Coffee</option>
+                           <option value="Education">Education</option>
+                           <option value="Entertainment">Entertainment</option>
+                           <option value="Food">Food/Groceries</option>
+                           <option value="Gas">Gas/Transportation</option>
+                           <option value="Holiday">Holiday</option>
+                           <option value="Home">Home</option>
+                           <option value="Insurance">Insurance</option>
+                           <option value="Kids">Kids</option>
+                           <option value="Medical">Medical</option>
+                           <option value="Misc">Misc</option>
+                           <option value="Mortgage">Mortgage/Rent</option>
+                           <option value="Phone">Phone/TV/Internet/Utilities</option>
+                           <option value="Taxes">Taxes</option>
+                           <option disabled>---------INCOMES---------</option>
+                           <option value="">Select category</option>
+                           <option value="Bonus">Bonus</option>
+                           <option value="Interest">Interest</option>
+                           <option value="Other">Other</option>
+                           <option value="Salary">Salary</option>
+                        </select>
+                     </form>
 
-                        <form>
-                           <button id="button-delete">Delete</button>
-                        </form>
+                     <form>
+                        <button id="button-delete">Delete</button>
+                     </form>
 
-                        <div id="table">
-                           <table id="example" class="display" cellspacing="0" width="100%">
-                              <thead>
-                                 <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Category</th>
-                                    <th>Note</th>
-                                 </tr>
-                              </thead>
-                              <tfoot>
-                                 <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Category</th>
-                                    <th>Note</th>
-                                 </tr>
-                           </table>
-                        </div>
+                     <div id="table">
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                           <thead>
+                              <tr>
+                                 <th>Date</th>
+                                 <th>Amount</th>
+                                 <th>Category</th>
+                                 <th>Note</th>
+                              </tr>
+                           </thead>
+                           <tfoot>
+                              <tr>
+                                 <th>Date</th>
+                                 <th>Amount</th>
+                                 <th>Category</th>
+                                 <th>Note</th>
+                              </tr>
+                        </table>
                      </div>
-                     <div class="clear"></div>
                   </div>
                </div>
             </div>
          </div>
-
-
+      </div>
 
       <!-- jQuery -->
       <script src="/vendor/jquery/jquery.js"></script>
