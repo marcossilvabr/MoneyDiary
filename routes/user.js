@@ -1,7 +1,7 @@
 
 const router      = require('express').Router()
 const bodyParser  = require('body-parser')
-const bcrypt      = require('bcrypt');
+const bcrypt      = require('bcrypt-nodejs');
 
 
 module.exports = (User) => {
