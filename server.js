@@ -13,25 +13,20 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// const MongoClient = require('mongodb').MongoClient
-const MongoURI = 'mongodb://localhost:27017/moneyDiary'
 const mongoose = require('mongoose')
-let db = mongoose.connect(MongoURI, {
+const configDB = require('./config/database.js')
+// let db =
+mongoose.connect(configDB.url, {
   useMongoClient: true
 });
 
-// db connection and schema storage
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', () => {
-  console.log("we're connected!")
-
-  let adderSchema = mongoose.Schema({
-    date: String,
-    amount: Number,
-    category: { type: String, required: true },
-    note: { type: String, default: "N/A" },
-  })
-  let Data = mongoose.model('Data', adderSchema)
+  // let adderSchema = mongoose.Schema({
+  //   date: String,
+  //   amount: Number,
+  //   category: { type: String, required: true },
+  //   note: { type: String, default: "N/A" },
+  // })
+  // let Data = mongoose.model('Data', adderSchema)
 
   let userSchema = mongoose.Schema({
     firstName: String,
@@ -43,13 +38,12 @@ db.once('open', () => {
 
   // --> Cashflow Data Routing <-- //
   const cashflowData = require('./routes/cashflowData.js')
-  app.use('/cashflowData', cashflowData(db, Data))
+  app.use('/cashflowData', cashflowData())
 
   // --> User Handlers <-- //
   const user = require('./routes/user.js')
-  app.use('/user', user(db, User))
+  app.use('/user', user(User))
 
-})
 
 
 // Home Page

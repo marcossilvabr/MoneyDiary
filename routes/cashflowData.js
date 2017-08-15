@@ -1,7 +1,8 @@
 
 const router = require('express').Router()
+const Data   = require('../models/data')
 
-module.exports = (db, Data) => {
+module.exports = () => {
 
   router.get("/", (req, res) => {
       Data.find((err, data) => {

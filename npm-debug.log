@@ -9,8 +9,8 @@
 6 silly lifecycle moneydiary@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle moneydiary@1.0.0~start: moneydiary@1.0.0
 8 verbose lifecycle moneydiary@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle moneydiary@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.9.5/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/MoneyDiary/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.9.5/bin:/home/vagrant/.rvm/gems/ruby-2.3.3/bin:/home/vagrant/.rvm/gems/ruby-2.3.3@global/bin:/home/vagrant/.rvm/rubies/ruby-2.3.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin
-10 verbose lifecycle moneydiary@1.0.0~start: CWD: /vagrant/MoneyDiary
+9 verbose lifecycle moneydiary@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.9.5/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/moneyDiary/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.9.5/bin:/home/vagrant/.rvm/gems/ruby-2.3.3/bin:/home/vagrant/.rvm/gems/ruby-2.3.3@global/bin:/home/vagrant/.rvm/rubies/ruby-2.3.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/vagrant/.rvm/bin:/home/vagrant/.rvm/bin
+10 verbose lifecycle moneydiary@1.0.0~start: CWD: /vagrant/moneyDiary
 11 silly lifecycle moneydiary@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle moneydiary@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle moneydiary@1.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid moneydiary@1.0.0
-16 verbose cwd /vagrant/MoneyDiary
+16 verbose cwd /vagrant/moneyDiary
 17 error Linux 4.4.0-21-generic
 18 error argv "/home/vagrant/.nvm/versions/node/v6.9.5/bin/node" "/home/vagrant/.nvm/versions/node/v6.9.5/bin/npm" "start"
 19 error node v6.9.5

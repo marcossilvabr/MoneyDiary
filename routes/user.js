@@ -4,7 +4,7 @@ const bodyParser  = require('body-parser')
 const bcrypt      = require('bcrypt');
 
 
-module.exports = (db, User) => {
+module.exports = (User) => {
 
   router.get("/register", (req, res) => {
     res.render('./register')
@@ -22,7 +22,7 @@ module.exports = (db, User) => {
       if (err)
         res.send(err);
 
-      req.session.user_id = user['_id']  
+      req.session.user_id = user['_id']
       res.redirect('./register');
     });
 
