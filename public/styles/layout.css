@@ -17,6 +17,7 @@ body {
 
 .login {
   background-image: url("/images/login.jpg");
+  background-color: #fff;
   background-size: cover;
   background-position: right center;
   background-attachment: fixed;
@@ -33,6 +34,7 @@ body {
 
 .register {
   background-image: url("/images/register.jpg");
+  background-color: #fff;
   background-size: cover;
   background-position: right center;
   background-attachment: fixed;
