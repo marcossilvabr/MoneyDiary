@@ -7,6 +7,21 @@ body {
   background-color: #293846;
 }
 
+#loginbox {
+  background-color: rgba(171, 215, 238, 0.61);
+  background-attachment: fixed;
+  padding-top: 10px;
+  margin-top: 200px;
+}
+
+.login {
+  background-image: url("/images/login.jpg");
+  background-size: cover;
+  background-position: right center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 #wrapper {
   width: 100%;
 }
