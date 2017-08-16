@@ -26,6 +26,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
+
 // Database Configuration
 const configDB = require('./config/database.js')
 mongoose.connect(configDB.url, {
