@@ -74,6 +74,7 @@ app.use('/cashflowData', cashflowData(passport))
 const user = require('./routes/user.js')
 app.use('/user', user(passport))
 
+
 // Login Checker
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
