@@ -64,11 +64,74 @@ let result =
     "amount": "-20",
     "category": "Medical",
     "note": ""
-    }
+    },
+    {
+    "DT_RowId": "599352b249baae3d64ce412e",
+    "date": "2017/07/15",
+    "amount": "400",
+    "category": "Salary",
+    "note": "new"
+    },
+    {
+    "DT_RowId": "599352b249baae3d64ce412e",
+    "date": "2017/11/15",
+    "amount": "400",
+    "category": "Salary",
+    "note": "next new"
+    },
   ]
 }
 
+// Parsing the JSON
 const data = result['data']
+
+
+// -> Category Total By Month <- //
+
+function categoryTotal(data) {
+
+  let currentMonth = data[0]['date'].split('/', 2).join('/')
+  let newData      = []
+
+  data.forEach(( element ) => {
+
+    let month    = element['date'].split('/', 2).join('/')
+    let category = element['category']
+    let amount   = Number(element['amount'])
+
+    if ( month == currentMonth ) {
+
+      if ( newData.length == 0 ) {
+
+        let entry = { date     : currentMonth,
+                      category : element['category'],
+                      amount   : element['amount'] }
+        newData.push(entry)
+
+      } else {
+
+        newData.forEach(( element ) => {
+
+
+
+        })
+
+      }
+
+    }
+
+
+  })
+
+  console.log(newData);
+
+}
+
+// categoryTotal(data)
+
+
+
+// -> Monthly Total Functions <- //s
 
 function getTotalByMonth(data) {
 
@@ -99,14 +162,40 @@ function getTotalByMonth(data) {
         runningTotal += Number(element['amount'])
 
         currentMonth = month
+
       }
 
     // If the element is the last one in the array:
-    } else {
-      let monthData = { date   : currentMonth,
-                        amount : runningTotal }
+    }
+    else {
 
-      monthlyTotal.push(monthData)
+      if ( month == currentMonth ) {
+        runningTotal += Number(element['amount'])
+
+        let monthData = { date   : currentMonth,
+                          amount : runningTotal }
+
+        monthlyTotal.push(monthData)
+
+      }
+      else {
+
+        let monthData = { date   : currentMonth,
+                          amount : runningTotal }
+
+        monthlyTotal.push(monthData)
+
+        runningTotal = 0
+        runningTotal += Number(element['amount'])
+        currentMonth = month
+
+        let finalData = { date   : currentMonth,
+                          amount : runningTotal }
+
+        monthlyTotal.push(finalData)
+
+      }
+
     }
   })
 
