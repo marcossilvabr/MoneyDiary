@@ -89,4 +89,5 @@ module.exports = (passport) => {
   }
 
   return router
+  
 }

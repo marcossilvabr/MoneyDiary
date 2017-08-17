@@ -51,7 +51,8 @@ app.get("/", isLoggedIn, (req, res) => {
 // Cashflow
 app.get("/cashflow", isLoggedIn, (req, res) => {
   res.render('cashflow', {
-    user : req.user
+    user : req.user,
+    error: req.flash('error')
   })
 })
 // Mortgage Calculator
