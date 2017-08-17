@@ -12,10 +12,29 @@ body {
   background-attachment: fixed;
   padding-top: 10px;
   margin-top: 200px;
+  color: #454b53;
 }
 
 .login {
   background-image: url("/images/login.jpg");
+  background-color: #fff;
+  background-size: cover;
+  background-position: right center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#registerbox {
+  background-color: rgba(161, 217, 115, 0.53);
+  background-attachment: fixed;
+  padding-top: 10px;
+  margin-top: 200px;
+  color: #fff;
+}
+
+.register {
+  background-image: url("/images/register.jpg");
+  background-color: #fff;
   background-size: cover;
   background-position: right center;
   background-attachment: fixed;
