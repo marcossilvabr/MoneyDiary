@@ -145,11 +145,18 @@ function getTotalByMonth(data) {
     let month = element['date'].split('/', 2).join('/')
 
     // If the element is not the last one in the array:
-    if ( index != data.length-1 ) {
+    // if ( index != data.length-1 ) {
 
       // If the current element has the same month as the last element:
       if ( month == currentMonth ) {
         runningTotal += Number(element['amount'])
+
+        if ( index == data.length-1 ) {
+          let monthData = { date   : currentMonth,
+                            amount : runningTotal }
+
+          monthlyTotal.push(monthData)
+        }
 
       // If the element has a new month from the last one:
       } else {
@@ -163,40 +170,15 @@ function getTotalByMonth(data) {
 
         currentMonth = month
 
-      }
+        if ( index == data.length-1 ) {
+          let finalData = { date   : currentMonth,
+                            amount : runningTotal }
 
-    // If the element is the last one in the array:
-    }
-    else {
-
-      if ( month == currentMonth ) {
-        runningTotal += Number(element['amount'])
-
-        let monthData = { date   : currentMonth,
-                          amount : runningTotal }
-
-        monthlyTotal.push(monthData)
+          monthlyTotal.push(finalData)
+        }
 
       }
-      else {
-
-        let monthData = { date   : currentMonth,
-                          amount : runningTotal }
-
-        monthlyTotal.push(monthData)
-
-        runningTotal = 0
-        runningTotal += Number(element['amount'])
-        currentMonth = month
-
-        let finalData = { date   : currentMonth,
-                          amount : runningTotal }
-
-        monthlyTotal.push(finalData)
-
-      }
-
-    }
+      
   })
 
   return monthlyTotal
