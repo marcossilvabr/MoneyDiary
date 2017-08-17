@@ -5,6 +5,7 @@ const bodyParser  = require('body-parser')
 
 module.exports = () => {
 
+  // Render Data Endpoint
   router.get("/", (req, res) => {
     let user = req.user._id
     Data.find({ user: user }, (err, data) => {
@@ -28,8 +29,12 @@ module.exports = () => {
     })
   })
 
+  // Put Cashflow Item into Database
   router.post("/", (req, res) => {
 
+    let date     = req.body.djoined
+    let amount   = Number(req.body.amount)
+    let note     = req.body.note
     let category = req.body.category
 
     category.forEach((index) => {
@@ -38,21 +43,37 @@ module.exports = () => {
       }
     })
 
-    let data = new Data
-    data.date = req.body.djoined
-    data.amount = req.body.amount
-    data.note = req.body.note
-    data.category = category
-    data.user = req.user._id
+    if ( !amount || (typeof amount) != 'number'  ) {
 
-    data.save((err) => {
-      if (err)
-        res.send(err)
+      req.flash('error', 'You must enter a valid amount')
+      res.redirect('cashflow')
 
-        res.redirect('back')
-    })
+    } else if ( typeof category != 'string' ) {
+
+      req.flash('error', 'You must enter a category')
+      res.redirect('cashflow')
+
+    } else {
+
+      let data      = new Data
+      data.date     = date
+      data.amount   = amount
+      data.note     = note
+      data.category = category
+      data.user     = req.user._id
+
+      data.save((err) => {
+        if (err)
+          res.send(err)
+
+          res.redirect('back')
+      })
+
+    }
+
   })
 
+  // Delete Cashflow Item
   router.post("/delete/:id", (req, res) => {
     Data.remove({ _id: req.params.id }, (err) => {
       if (err)

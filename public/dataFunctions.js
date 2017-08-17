@@ -113,7 +113,7 @@ function getTotalByMonth(data) {
   return monthlyTotal
 
 }
-// console.log(getTotalByMonth(data));
+console.log(getTotalByMonth(data));
 
 
 function highestMonth(getTotalByMonth, data) {
