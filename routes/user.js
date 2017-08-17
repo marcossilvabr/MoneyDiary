@@ -88,7 +88,5 @@ module.exports = (passport) => {
     res.redirect('/')
   }
 
-
-
   return router
 }
