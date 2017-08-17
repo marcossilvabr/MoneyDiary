@@ -20,34 +20,47 @@
 
     <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+          <div class="well">
+              <h3><span class="fa fa-user"></span> Local</h3>
 
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
+              <% if (user.local.email) { %>
+                  <p>
+                      <strong>id</strong>: <%= user._id %><br>
+                      <strong>email</strong>: <%= user.local.email %><br>
+                      <strong>password</strong>: <%= user.local.password %>
+                  </p>
 
-            </div>
-        </div>
+                  <a href="/user/unlink/local" class="btn btn-default">Unlink</a>
+              <% } else { %>
+                  <a href="/user/connect/local" class="btn btn-default">Connect Local</a>
+              <% } %>
 
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+          </div>
+      </div>
 
-                    <p>
-                        <strong>id</strong>: <%= user.facebook.id %><br>
-                        <strong>token</strong>: <%= user.facebook.token %><br>
-                        <strong>email</strong>: <%= user.facebook.email %><br>
-                        <strong>name</strong>: <%= user.facebook.name %>
-                    </p>
+      <!-- FACEBOOK INFORMATION -->
+      <div class="col-sm-6">
+          <div class="well">
+              <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
 
-            </div>
-        </div>
+              <!-- check if the user has this token (is the user authenticated with this social account) -->
+              <% if (user.facebook.token) { %>
+                  <p>
+                      <strong>id</strong>: <%= user.facebook.id %><br>
+                      <strong>token</strong>: <%= user.facebook.token %><br>
+                      <strong>email</strong>: <%= user.facebook.email %><br>
+                      <strong>name</strong>: <%= user.facebook.name %><br>
+                  </p>
+
+                  <a href="/user/unlink/facebook" class="btn btn-primary">Unlink</a>
+              <% } else { %>
+                  <a href="/user/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+              <% } %>
+
+          </div>
+      </div>
 
     </div>
 
