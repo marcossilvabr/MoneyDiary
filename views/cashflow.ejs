@@ -115,11 +115,13 @@
                               <button type="button" class="btn btn-outline btn-success" id="trigger-add-income">+ Add Income</button>
                               <button type="button" class="btn btn-outline btn-warning" id="trigger-add-expense">- Add Expense</button>
                            </div>
-                           <div class="error-flash">
-                             <% if (error) { %>
-                               <h5 style='color:red'><%= error %></h5>
-                             <% } %>
-                          </div>
+                           <div class="col-lg-3">
+                              <div class="error-flash">
+                                <% if (error) { %>
+                                  <h5 style="color: red;"><%= error %></h5>
+                                <% } %>
+                              </div>
+                           </div>
                         </div>
                      </div>
 
@@ -131,7 +133,7 @@
                                     <div class="labels expenses">
                                        <div class="form-group input-group" style="float: left">
                                           <span class="input-group-addon">$</span>
-                                          <input placeholder="amount" type="text" class="form-control" name="amount" id="amount-form">
+                                          <input placeholder="amount" type="number" class="form-control" name="amount" id="amount-form" onkeypress="return isNumberKey(event)">
                                        </div>
                                        <div class="form-group" style="float: right">
                                           <input placeholder="note (optional)" class="form-control" name="note">
@@ -175,7 +177,8 @@
                                        <button type="button" class="btn btn-warning">Cancel</button>
                                     </div>
                                     <div id="submit-button">
-                                       <input type="submit" form="transaction" class="btn btn-success" value="Add">
+                                       <input type="submit" id="positive-submit" form="transaction" class="btn btn-success" value="Add">
+                                       <input type="submit" id="negative-submit" form="transaction" class="btn btn-success" value="Add">
                                     </div>
                                  </div>
                               </form>

@@ -634,3 +634,9 @@ body {
 .get-details {
   background-color: #1cc09f !important;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
