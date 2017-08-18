@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+
+      <link rel="icon" href="images/favicon-money.ico" />
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>MoneyDiary - Monthly Table</title>
+
+      <!-- Bootstrap Core CSS -->
+      <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+      <!-- MetisMenu CSS -->
+      <link href="/vendor/metisMenu/metisMenu.css" rel="stylesheet">
+
+      <!-- Custom CSS -->
+      <link href="/styles/layout.css" rel="stylesheet">
+
+      <!-- Custom Fonts -->
+      <link href="/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+      <!-- Table CSS -->
+      <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+
+      <!-- Jquery UI CSS -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+   </head>
+
+   <body>
+
+      <div id="wrapper">
+
+         <!-- Navigation -->
+         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="index.html">MoneyDiary</a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+               <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user">
+                     <li><a href="/user/profile"><i class="fa fa-user fa-fw"></i>Profile</a></li>
+                     <li class="divider"></li>
+                     <li><a href="/user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                  </ul>
+               </li>
+            </ul>
+
+            <!-- Side Bar Navigation -->
+            <div class="navbar-default sidebar" role="navigation">
+               <div class="sidebar-nav navbar-collapse">
+                  <ul class="nav" id="side-menu">
+                     <li>
+                        <a href="/"><i class="fa fa-dashboard fa-fw"></i> My Money Diary</a>
+                     </li>
+                     <li>
+                        <a href="/cashflow"><i class="fa fa-edit fa-fw"></i> Cash Flow</a>
+                     </li>
+                     <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                           <li>
+                              <a href="flot.html">Flot Charts</a>
+                           </li>
+                           <li>
+                              <a href="morris.html">Morris.js Charts</a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="/mortgage"><i class="fa fa-table fa-fw"></i> Mortgage Wizard</a>
+                     </li>
+                     <li>
+                        <a href="investment"><i class="fa fa-edit fa-fw"></i> Investment Wizard</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+
+         <!-- Page Content -->
+         <div id="page-wrapper">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <h2 class="page-header">Monthly Table</h2>
+                        <div class="btn-group"></div>
+                     </div>
+
+                     <div id="table">
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                           <thead>
+                              <tr>
+                                 <th>Categories</th>
+                                 <th>Jan</th>
+                                 <th>Fev</th>
+                                 <th>Mar</th>
+                                 <th>Apr</th>
+                                 <th>May</th>
+                                 <th>Jun</th>
+                                 <th>Jul</th>
+                                 <th>Aug</th>
+                                 <th>Sep</th>
+                                 <th>Oct</th>
+                                 <th>Nov</th>
+                                 <th>Dec</th>
+                              </tr>
+                           </thead>
+                           <tfoot>
+                              <tr>
+                                 <th>Categories</th>
+                                 <th>Jan</th>
+                                 <th>Fev</th>
+                                 <th>Mar</th>
+                                 <th>Apr</th>
+                                 <th>May</th>
+                                 <th>Jun</th>
+                                 <th>Jul</th>
+                                 <th>Aug</th>
+                                 <th>Sep</th>
+                                 <th>Oct</th>
+                                 <th>Nov</th>
+                                 <th>Dec</th>
+                              </tr>
+                           </tfoot>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <!-- jQuery -->
+      <script src="/vendor/jquery/jquery.js"></script>
+
+      <!-- Bootstrap Core JavaScript -->
+      <script src="/vendor/bootstrap/js/bootstrap.js"></script>
+
+      <!-- Metis Menu Plugin JavaScript -->
+      <script src="/vendor/metisMenu/metisMenu.js"></script>
+
+      <!-- Custom Theme JavaScript -->
+      <script src="/scripts/pagewrapper.js"></script>
+
+      <!-- Transactions JavaScript -->
+
+
+      <!-- Monthly Tables JavaScript -->
+      <script src="/scripts/tablesmonthly.js"></script>
+      <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+      <!-- Datepicker UI Javascript -->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   </body>
+
+</html>

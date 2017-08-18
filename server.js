@@ -55,6 +55,12 @@ app.get("/cashflow", isLoggedIn, (req, res) => {
     error: req.flash('error')
   })
 })
+// Monthly table
+app.get("/monthlytable", isLoggedIn, (req, res) => {
+  res.render('monthlytable', {
+    user : req.user
+  })
+})
 // Mortgage Calculator
 app.get("/mortgage", isLoggedIn, (req, res) => {
   res.render('mortgage', {

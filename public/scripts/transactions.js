@@ -26,3 +26,11 @@ $("#adder-close").click(function() {
   $('#trigger-add-expense').removeClass('active');
   return false;
 });
+
+$("#pie-collapse").click(function() {
+  $("#pie-pannel").toggle( "slow" )
+})
+
+$("#bar-collapse").click(function() {
+  $("#bar-pannel").toggle( "slow" )
+})

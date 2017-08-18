@@ -235,4 +235,4 @@ function averageOfMonths(getTotalByMonth, data) {
   return mean
 
 }
-// console.log(averageOfMonths(getTotalByMonth, data));
+console.log(getTotalByMonth(data))
