@@ -11,7 +11,7 @@ $(document).ready(function() {
                 }
             }
         }],
-        "dom": 'rtip',
+        "dom": 'frtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
         "columns": [
@@ -98,6 +98,8 @@ $(document).ready(function() {
 
     }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
 
+    var id = "test"
+
     $('#example tbody').on( 'click', 'tr', function () {
     if ( $(this).hasClass('selected') ) {
         $(this).removeClass('selected');
@@ -110,22 +112,12 @@ $(document).ready(function() {
     } );
 
     $('#button-delete').on( 'click', function (event) {
-        event.preventDefault()
         $.ajax ({
             method: 'POST',
             url: `/cashflowData/delete/${id}`,
+            success: function() {
+                $('#example').DataTable().ajax.reload()
+            }
         })
-        $('#example').DataTable().ajax.reload()
     })
-
-    // $('#button-edit').on( 'click', function (event) {
-    //     event.preventDefault()
-    //     console.log(id)
-    //     $.ajax ({
-    //         method: 'PUT',
-    //         url: `/cashflowData/edit/${id}`,
-    //     })
-    //     $('#example').DataTable().ajax.reload()
-    // })
-
 })
