@@ -64,7 +64,7 @@ function call() {
           var Sep = Number()
           var Oct = Number()
           var Nov = Number()
-          var Dez = Number()
+          var Dec = Number()
 
           month = monthlyTotal
 
@@ -112,7 +112,7 @@ function call() {
                  { y: 'Sep', a: Sep},
                  { y: 'Oct', a: Oct},
                  { y: 'Nov', a: Nov},
-                 { y: 'Dez', a: Dez}
+                 { y: 'Dec', a: Dec}
               ],
               xkey: 'y',
               ykeys: ['a'],
