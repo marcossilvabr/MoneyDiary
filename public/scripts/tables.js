@@ -93,7 +93,7 @@ $(document).ready(function() {
                 '$'+pageTotal +' ( $'+ total +' total)'
             );
 
-            $("#wallet-balance .append").html( '$' + pageTotal );
+            $("#wallet-balance .append").html( '$' + total );
         }
 
     }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
@@ -103,7 +103,6 @@ $(document).ready(function() {
     $('#example tbody').on( 'click', 'tr', function () {
     if ( $(this).hasClass('selected') ) {
         $(this).removeClass('selected');
-        // console.log(this).id
     }
     else {
         everything.$('tr.selected').removeClass('selected');

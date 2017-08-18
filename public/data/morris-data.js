@@ -116,18 +116,17 @@ function call() {
               ],
               xkey: 'y',
               ykeys: ['a'],
-              labels: ['Series A'],
+              labels: ['Monthly Total'],
               barColors: function(row, series, type) {
-                if(series.key == 'a')
-                {
-                  if(row.y < 0)
+                if (series.key == 'a') {
+                  if (row.y < 0) {
                     return "#f12d58";
-                  else
+                  } else {
                     return "#008F70";
+                  }
                 }
               }
-
-              });
+          })
 
         }getTotalByMonth(data)
      }

@@ -1,6 +1,6 @@
 // setup shortcut links for add income/expense
 $("#trigger-add-income").click(function() {
-  $("#adder").show();
+  $("#adder").show( "slow" );
   $('#trigger-add-income').addClass('active');
   $('#trigger-add-expense').removeClass('active');
   $("#category-income").show();
@@ -10,7 +10,7 @@ $("#trigger-add-income").click(function() {
   return false;
 });
 $("#trigger-add-expense").click(function() {
-  $("#adder").show();
+  $("#adder").show( "slow" );
   $("#adder-transfer").hide();
   $('#trigger-add-income').removeClass('active');
   $('#trigger-add-expense').addClass('active');
@@ -21,7 +21,7 @@ $("#trigger-add-expense").click(function() {
 });
 
 $("#adder-close").click(function() {
-  $("#adder").hide();
+  $("#adder").hide( "slow" );
   $('#trigger-add-income').removeClass('active');
   $('#trigger-add-expense').removeClass('active');
   return false;
