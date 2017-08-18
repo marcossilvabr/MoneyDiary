@@ -11,7 +11,7 @@ $(document).ready(function() {
                 }
             }
         }],
-        "dom": 'frtip',
+        "dom": 'rtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
         "columns": [
