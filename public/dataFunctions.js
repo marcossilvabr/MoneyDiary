@@ -123,15 +123,14 @@ function categoryTotal(data) {
 
   })
 
-  console.log(newData);
+  console.log(newData)
 
 }
 
 // categoryTotal(data)
 
 
-
-// -> Monthly Total Functions <- //s
+// -> Monthly Total Functions <- //
 
 function getTotalByMonth(data) {
 
@@ -184,7 +183,7 @@ function getTotalByMonth(data) {
   return monthlyTotal
 
 }
-// console.log(getTotalByMonth(data));
+// console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
@@ -238,25 +237,26 @@ function averageOfMonths(getTotalByMonth, data) {
 }
 // console.log(averageOfMonths(getTotalByMonth, data))
 
+
 function currentMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
   const date         = new Date()
   const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
-  console.log(currentDate);
-  console.log(Date.parse('2017/8'));
-  console.log(date.getMonth());
-
-  console.log('------')
-
+  let currentTotal   = 0
 
   totalByMonth.forEach(( element ) => {
 
-
     let elementDate = Date.parse( element['date'] )
-    console.log(elementDate);
+
+    if ( elementDate === currentDate ) {
+      currentTotal = element['amount']
+
+    }
 
   })
 
+  return currentTotal
+
 }
-currentMonth(getTotalByMonth, data)
+console.log(currentMonth(getTotalByMonth, data))
