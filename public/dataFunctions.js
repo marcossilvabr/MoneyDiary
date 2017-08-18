@@ -51,34 +51,34 @@ let result =
     "category": "Medical",
     "note": ""
     },
-    {
-    "DT_RowId": "599470eb9c3c255fb01cabce",
-    "date": "2017/10/08",
-    "amount": "100",
-    "category": "Bonus",
-    "note": ""
-    },
-    {
-    "DT_RowId": "599470eb9c3c255fb01cabce",
-    "date": "2017/10/08",
-    "amount": "-20",
-    "category": "Medical",
-    "note": ""
-    },
-    {
-    "DT_RowId": "599352b249baae3d64ce412e",
-    "date": "2017/07/15",
-    "amount": "400",
-    "category": "Salary",
-    "note": "new"
-    },
-    {
-    "DT_RowId": "599352b249baae3d64ce412e",
-    "date": "2017/11/15",
-    "amount": "400",
-    "category": "Salary",
-    "note": "next new"
-    },
+    // {
+    // "DT_RowId": "599470eb9c3c255fb01cabce",
+    // "date": "2017/10/08",
+    // "amount": "100",
+    // "category": "Bonus",
+    // "note": ""
+    // },
+    // {
+    // "DT_RowId": "599470eb9c3c255fb01cabce",
+    // "date": "2017/10/08",
+    // "amount": "-20",
+    // "category": "Medical",
+    // "note": ""
+    // },
+    // {
+    // "DT_RowId": "599352b249baae3d64ce412e",
+    // "date": "2017/07/15",
+    // "amount": "400",
+    // "category": "Salary",
+    // "note": "new"
+    // },
+    // {
+    // "DT_RowId": "599352b249baae3d64ce412e",
+    // "date": "2017/11/15",
+    // "amount": "-400",
+    // "category": "Salary",
+    // "note": "next new"
+    // },
   ]
 }
 
