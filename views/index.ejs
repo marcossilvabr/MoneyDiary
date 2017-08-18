@@ -25,6 +25,9 @@
       <!-- Custom Fonts -->
       <link href="/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 
+      <!-- Morris Chart CSS -->
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
    </head>
 
    <body>
@@ -179,31 +182,21 @@
                </div> -->
             </div>
             <div class="row">
-               <div class="col-lg-8">
+               <div class="col-lg-12">
                   <div class="panel panel-default">
                      <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Chart Pie
-                        <!-- <div class="pull-right">
-                           <div class="btn-group">
-                              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">Actions
-                                 <span class="caret"></span>
-                              </button>
-                              <ul class="dropdown-menu pull-right" role="menu">
-                                 <li><a href="#">Action</a></li>
-                                 <li><a href="#">Another action</a></li>
-                                 <li><a href="#">Something else here</a></li>
-                                 <li class="divider"></li>
-                                 <li><a href="#">Separated link</a></li>
-                              </ul>
-                           </div>
-                        </div> -->
+                        <i class="fa fa-pie-chart fa-fw"></i> Chart Pie
+                        <div class="pull-right">
+                           <a role="button" id="pie-collapse"><i class="fa fa-chevron-down"></i></a>
+                        </div>
                      </div>
-                     <div class="flot-chart">
+                     <div class="flot-chart" id="pie-pannel">
                         <div class="flot-chart-content" id="flot-pie-chart"></div>
                      </div>
                   </div>
                </div>
-               <div class="col-lg-4">
+
+               <!-- <div class="col-lg-4">
                   <div class="panel panel-default">
                      <div class="panel-heading">
                         <i class="fa fa-bell fa-fw"></i> Latest Entries
@@ -234,6 +227,20 @@
                         <a href="#" class="btn btn-default btn-block">View All Alerts</a>
                      </div>
                   </div>
+               </div> -->
+
+               <div class="col-lg-12">
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <i class="fa fa-line-chart fa-fw"></i> Bar Chart
+                        <div class="pull-right">
+                           <a role="button" id="bar-collapse"><i class="fa fa-chevron-down"></i></a>
+                        </div>
+                     </div>
+                     <div class="morris-chart" id="bar-pannel">
+                        <div class="morris-chart-content" id="morris-bar-chart"></div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
@@ -249,14 +256,21 @@
       <!-- Metis Menu Plugin JavaScript -->
       <script src="/vendor/metisMenu/metisMenu.js"></script>
 
-      <!-- Charts JavaScript -->
-
+      <!-- Flot Charts JavaScript -->
       <script src="/vendor/flot/excanvas.min.js"></script>
       <script src="/vendor/flot/jquery.flot.js"></script>
       <script src="/vendor/flot/jquery.flot.pie.js"></script>
       <script src="/vendor/flot/jquery.flot.resize.js"></script>
       <script src="/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
       <script src="/data/flot-data.js"></script>
+
+      <!-- Morris Charts JavaScript -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+      <script src="/data/morris-data.js"></script>
+
+      <!-- Transactions JavaScript -->
+      <script src="/scripts/transactions.js"></script>
 
       <!-- Custom Theme JavaScript -->
       <script src="/scripts/pagewrapper.js"></script>

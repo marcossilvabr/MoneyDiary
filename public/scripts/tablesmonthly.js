@@ -1,4 +1,3 @@
-
 let result =
 {
   "data": [
@@ -80,6 +79,7 @@ function getTotalByMonth(data) {
   data.forEach(( element, index ) => {
 
     let month = element['date'].split('/', 2).join('/')
+    let category = element['category']
 
     // If the element is not the last one in the array:
     if ( index != data.length-1 ) {
@@ -113,55 +113,4 @@ function getTotalByMonth(data) {
   return monthlyTotal
 
 }
-// console.log(getTotalByMonth(data));
-
-
-function highestMonth(getTotalByMonth, data) {
-
-  let totalByMonth = getTotalByMonth(data)
-  let highest = totalByMonth[0]
-
-  totalByMonth.forEach(( element ) => {
-    if (highest['amount'] < element['amount']) {
-      highest = element
-    }
-  })
-
-  return highest
-
-}
-// console.log(highestMonth(getTotalByMonth, data))
-
-
-function lowestMonth(getTotalByMonth, data) {
-
-  let totalByMonth = getTotalByMonth(data)
-  let lowest = totalByMonth[0]
-
-  totalByMonth.forEach(( element ) => {
-    if (lowest['amount'] > element['amount']) {
-      lowest = element
-    }
-  })
-
-  return lowest
-
-}
-// console.log(lowestMonth(getTotalByMonth, data))
-
-
-function averageOfMonths(getTotalByMonth, data) {
-
-  let totalByMonth = getTotalByMonth(data)
-  let sum = 0
-
-  totalByMonth.forEach(( element ) => {
-    sum += element['amount']
-  })
-
-  let mean = sum/totalByMonth.length
-
-  return mean
-
-}
-console.log(getTotalByMonth(data))
+console.log(getTotalByMonth(data));
