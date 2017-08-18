@@ -130,9 +130,7 @@ module.exports = (passport) => {
   },
 
   // facebook will send back the token and profile
-  (req, token, refreshToken, profile, done) => {
-
-    if (!req.user) {
+  (token, refreshToken, profile, done) => {
 
         // find the user in the database based on their facebook id
       User.findOne({ 'facebook.id' : profile.id }, (err, user) => {
@@ -165,27 +163,6 @@ module.exports = (passport) => {
           })
         }
       })
-
-    } else {
-
-      // user already exists and is logged in, we have to link accounts
-      let user             = req.user // pull the user out of the session
-       // update the current users facebook credentials
-       user.facebook.id    = profile.id;
-       user.facebook.token = token;
-       user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-       user.facebook.email = profile.emails[0].value;
-
-       // save the user
-      user.save(function(err) {
-        if (err)
-          throw err;
-        return done(null, user)
-      })
-    }
-
-  // }
-
 
   }))
 
