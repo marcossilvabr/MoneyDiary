@@ -4,9 +4,9 @@ const bodyParser  = require('body-parser')
 
 module.exports = (passport) => {
 
-  // -> ACCOUNT AUTHORIZATION <- //
+  // -> Account Authorization <- //
 
-  // LOGIN ===============================
+  // Login
   router.get('/login', (req, res) => {
     res.render('login.ejs', { message: req.flash('loginMessage') })
   })
@@ -17,7 +17,7 @@ module.exports = (passport) => {
     failureFlash : true // allow flash messages
   }))
 
-  // SIGNUP =================================
+  // Register
   router.get('/register', (req, res) => {
     res.render('register.ejs', { message: req.flash('signupMessage') })
   })
@@ -43,31 +43,6 @@ module.exports = (passport) => {
       req.logout()
       res.redirect('/landingPage')
   })
-
-  // // -> ACCOUNT LINKING <- //
-  //
-  // // locally --------------------------------
-  // router.get('/connect/local', function(req, res) {
-  //   res.render('connectLocal.ejs', { message: req.flash('loginMessage') })
-  // })
-  //
-  // router.post('/connect/local', passport.authenticate('local-signup', {
-  //   successRedirect : '/user/profile', // redirect to the secure profile section
-  //   failureRedirect : '/user/connect/local', // redirect back to the signup page if there is an error
-  //   failureFlash : true // allow flash messages
-  // }))
-  //
-  // // facebook -------------------------------
-  //
-  // // send to facebook to do the authentication
-  // router.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }))
-  //
-  // // handle the callback after facebook has authorized the user
-  // router.get('/connect/facebook/callback',
-  //   passport.authorize('facebook', {
-  //     successRedirect : '/user/profile',
-  //     failureRedirect : '/landingPage'
-  //   }))
 
 
   // -> USER HANDLERS <- //
