@@ -54,82 +54,85 @@ $(document).ready(function() {
                 }
 
             })
-            var Jan = Number()
-            var Feb = Number()
-            var Mar = Number()
-            var Apr = Number()
-            var May = Number()
-            var Jun = Number()
-            var Jul = Number()
-            var Aug = Number()
-            var Sep = Number()
-            var Oct = Number()
-            var Nov = Number()
-            var Dec = Number()
 
-            month = monthlyTotal
+            return monthlyTotal
 
-            for (var i = 0; i <= 12; i++) {
-              if (month[i] === undefined) {
-                i++
-              } else if (month[i].date == 01) {
-                Jan = month[i].amount
-              } else if (month[i].date == 02) {
-                Feb = month[i].amount
-              } else if (month[i].date == 03) {
-                Mar = month[i].amount
-              } else if (month[i].date == 04) {
-                Apr = month[i].amount
-              } else if (month[i].date == 05) {
-                May = month[i].amount
-              } else if (month[i].date == 06) {
-                Jun = month[i].amount
-              } else if (month[i].date == 07) {
-                Jul = month[i].amount
-              } else if (month[i].date == 08) {
-                Aug = month[i].amount
-              } else if (month[i].date == 09) {
-                Sep = month[i].amount
-              } else if (month[i].date == 10) {
-                Oct = month[i].amount
-              } else if (month[i].date == 11) {
-                Nov = month[i].amount
-              } else if (month[i].date == 12) {
-                Dec = month[i].amount
-              }
+          }
+
+          var Jan = Number()
+          var Feb = Number()
+          var Mar = Number()
+          var Apr = Number()
+          var May = Number()
+          var Jun = Number()
+          var Jul = Number()
+          var Aug = Number()
+          var Sep = Number()
+          var Oct = Number()
+          var Nov = Number()
+          var Dec = Number()
+
+          let month = getTotalByMonth(data)
+
+          for (var i = 0; i <= 12; i++) {
+            if (month[i] === undefined) {
+              i++
+            } else if (month[i].date == 01) {
+              Jan = month[i].amount
+            } else if (month[i].date == 02) {
+              Feb = month[i].amount
+            } else if (month[i].date == 03) {
+              Mar = month[i].amount
+            } else if (month[i].date == 04) {
+              Apr = month[i].amount
+            } else if (month[i].date == 05) {
+              May = month[i].amount
+            } else if (month[i].date == 06) {
+              Jun = month[i].amount
+            } else if (month[i].date == 07) {
+              Jul = month[i].amount
+            } else if (month[i].date == 08) {
+              Aug = month[i].amount
+            } else if (month[i].date == 09) {
+              Sep = month[i].amount
+            } else if (month[i].date == 10) {
+              Oct = month[i].amount
+            } else if (month[i].date == 11) {
+              Nov = month[i].amount
+            } else if (month[i].date == 12) {
+              Dec = month[i].amount
             }
+          }
 
-            new Morris.Bar({
-                element: 'morris-bar-chart',
-                data: [
-                   { y: 'Jan', a: Jan},
-                   { y: 'Feb', a: Feb},
-                   { y: 'Mar', a: Mar},
-                   { y: 'Apr', a: Apr},
-                   { y: 'May', a: May},
-                   { y: 'Jun', a: Jun},
-                   { y: 'Jul', a: Jul},
-                   { y: 'Aug', a: Aug},
-                   { y: 'Sep', a: Sep},
-                   { y: 'Oct', a: Oct},
-                   { y: 'Nov', a: Nov},
-                   { y: 'Dec', a: Dec}
-                ],
-                xkey: 'y',
-                ykeys: ['a'],
-                labels: ['Monthly Total'],
-                barColors: function(row, series, type) {
-                  if (series.key == 'a') {
-                    if (row.y < 0) {
-                      return "#f12d58";
-                    } else {
-                      return "#008F70";
-                    }
+          new Morris.Bar({
+              element: 'morris-bar-chart',
+              data: [
+                 { y: 'Jan', a: Jan},
+                 { y: 'Feb', a: Feb},
+                 { y: 'Mar', a: Mar},
+                 { y: 'Apr', a: Apr},
+                 { y: 'May', a: May},
+                 { y: 'Jun', a: Jun},
+                 { y: 'Jul', a: Jul},
+                 { y: 'Aug', a: Aug},
+                 { y: 'Sep', a: Sep},
+                 { y: 'Oct', a: Oct},
+                 { y: 'Nov', a: Nov},
+                 { y: 'Dec', a: Dec}
+              ],
+              xkey: 'y',
+              ykeys: ['a'],
+              labels: ['Monthly Total'],
+              barColors: function(row, series, type) {
+                if (series.key == 'a') {
+                  if (row.y < 0) {
+                    return "#f12d58";
+                  } else {
+                    return "#008F70";
                   }
                 }
-            })
-
-          }getTotalByMonth(data)
+              }
+          })
        }
     })
   }call()

@@ -95,43 +95,33 @@ const data = result['data']
 
 // -> Category Total By Month <- //
 
-// function categoryTotal(data) {
-//
-//   let currentMonth = data[0]['date'].split('/', 2).join('/')
-//   let newData      = []
-//
-//   data.forEach(( element ) => {
-//
-//     let month    = element['date'].split('/', 2).join('/')
-//     let category = element['category']
-//     let amount   = Number(element['amount'])
-//
-//     if ( month == currentMonth ) {
-//
-//       if ( newData.length == 0 ) {
-//
-//         let entry = { date     : currentMonth,
-//                       category : element['category'],
-//                       amount   : element['amount'] }
-//         newData.push(entry)
-//
-//       } else {
-//
-//         newData.forEach(( element ) => {
-//
-//
-//         })
-//
-//       }
-//
-//     }
-//
-//
-//   })
-//
-//   console.log(newData)
-//
-// }
+function categoryTotal(data) {
+
+  dataObject = {}
+
+  data.forEach(( element ) => {
+    let month    = element['date'].split('/', 2).join('/')
+    let category = element['category']
+    let amount   = element['amount']
+
+    if ( !dataObject[month] ) {
+      dataObject[month] = { category : category,
+                            amount   : amount }
+
+    }
+    // else if ( !dataObject[month]['category'] ) {
+    //   dataObject[month] = { category : category,
+    //                         amount   : amount }
+    // }
+
+
+
+  })
+
+  console.log(dataObject);
+
+
+}
 
 // categoryTotal(data)
 
@@ -218,7 +208,7 @@ function getTotalByMonth(data) {
   return reorderList(monthlyTotal)
 
 }
-console.log(getTotalByMonth(data))
+// console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
