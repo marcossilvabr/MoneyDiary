@@ -3,6 +3,13 @@
 
    <head>
 
+      <script type="text/javascript">
+         window.onload = function init() {
+            jQuery('#filter-year').find('option[value="'+ new Date().getFullYear() + '"]').attr('selected', 'selected')
+            document.getElementById('filter-month').options[new Date().getMonth()].selected = true
+         }
+      </script>
+
       <link rel="icon" href="images/favicon-money.ico" />
 
       <meta charset="utf-8">
@@ -302,6 +309,10 @@
       <!-- jQuery -->
       <script src="/vendor/jquery/jquery.js"></script>
 
+      <!-- Tables JavaScript -->
+      <script src="/scripts/tables.js"></script>
+      <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
       <!-- Bootstrap Core JavaScript -->
       <script src="/vendor/bootstrap/js/bootstrap.js"></script>
 
@@ -314,20 +325,10 @@
       <!-- Transactions JavaScript -->
       <script src="/scripts/transactions.js"></script>
 
-      <!-- Tables JavaScript -->
-      <script src="/scripts/tables.js"></script>
-      <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
-
       <!-- Datepicker UI Javascript -->
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-      <script type="text/javascript">
-         window.onload = function init() {
-            jQuery('#filter-year').find('option[value="'+ new Date().getFullYear() + '"]').attr('selected', 'selected')
 
-            document.getElementById('filter-month').options[new Date().getMonth()].selected = true
-         }
-      </script>
       <script>
          $(document).ready(function(){
              $('[data-toggle="popover"]').popover();

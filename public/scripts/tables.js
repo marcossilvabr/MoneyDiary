@@ -112,12 +112,12 @@ $(document).ready(function() {
     } );
 
     $('#button-delete').on( 'click', function (event) {
-        event.preventDefault()
-        console.log(id)
         $.ajax ({
             method: 'POST',
             url: `/cashflowData/delete/${id}`,
+            success: function() {
+                $('#example').DataTable().ajax.reload()
+            }
         })
-        $('#example').DataTable().ajax.reload()
     })
 })
