@@ -53,6 +53,11 @@ module.exports = () => {
       req.flash('error', 'You must enter a category')
       res.redirect('cashflow')
 
+    } else if ( !date ) {
+
+      req.flash('error', 'No date')
+      res.redirect('cashflow')
+
     } else {
 
       let data      = new Data
