@@ -95,7 +95,7 @@ $(document).ready(function() {
                      var Dec = Number()
 
                      month = newMonthlyTotal
-                     console.log(newMonthlyTotal)
+                    //  console.log(newMonthlyTotal)
 
                      for (var i = 0; i <= 12; i++) {
                         if (month[i] === undefined) {

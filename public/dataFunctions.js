@@ -123,7 +123,7 @@ function categoryTotal(data) {
 
 }
 
-categoryTotal(data)
+// categoryTotal(data)
 
 
 // -> Monthly Total Functions <- //
