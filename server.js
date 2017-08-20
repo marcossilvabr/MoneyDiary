@@ -8,6 +8,7 @@ const ENV          = process.env.ENV || "development"
 const express      = require("express")
 const app          = express()
 const mongoose     = require('mongoose')
+const MONGODB_URI = process.env.MONGODB_URI
 
 // Authentication
 const passport     = require('passport')
