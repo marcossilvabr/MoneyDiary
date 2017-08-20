@@ -123,7 +123,7 @@ function categoryTotal(data) {
 
 }
 
-// categoryTotal(data)
+categoryTotal(data)
 
 
 // -> Monthly Total Functions <- //
@@ -208,7 +208,7 @@ function getTotalByMonth(data) {
   return reorderList(monthlyTotal)
 
 }
-console.log(getTotalByMonth(data))
+// console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
