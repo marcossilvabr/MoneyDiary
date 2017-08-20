@@ -134,6 +134,8 @@ function getTotalByMonth(data) {
   let currentMonth = data[0]['date'].split('/', 2).join('/')
   let runningTotal = 0
   let monthlyTotal = []
+  let monthObject    = {}
+  let newMonthlyTotal = []
 
   data.forEach(( element, index ) => {
 
@@ -176,39 +178,31 @@ function getTotalByMonth(data) {
 
   })
 
-  function reorderList(monthlyTotal) {
+  // To reorder list and add out of order elements together
+  monthlyTotal.forEach(( element ) => {
 
-    const totalByMonth = monthlyTotal
-    let monthObject    = {}
-    let newMonthlyTotal = []
-
-    totalByMonth.forEach(( element ) => {
-
-      if ( !monthObject[element['date']] ) {
-        monthObject[element['date']] = element['amount']
-      } else {
-        monthObject[element['date']] += element['amount']
-      }
-
-    })
-
-    for ( month in monthObject ) {
-
-      let monthlyData = { date   : month,
-                          amount : monthObject[month] }
-
-      newMonthlyTotal.push(monthlyData)
-
+    if ( !monthObject[element['date']] ) {
+      monthObject[element['date']] = element['amount']
+    } else {
+      monthObject[element['date']] += element['amount']
     }
 
-    return newMonthlyTotal
+  })
+
+  for ( month in monthObject ) {
+
+    let monthlyData = { date   : month,
+                        amount : monthObject[month] }
+
+    newMonthlyTotal.push(monthlyData)
 
   }
 
-  return reorderList(monthlyTotal)
+  return newMonthlyTotal
+
 
 }
-// console.log(getTotalByMonth(data))
+console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
