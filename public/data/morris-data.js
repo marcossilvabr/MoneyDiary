@@ -80,7 +80,7 @@ $(document).ready(function() {
                   }
 
 
-                  // function graph(newMonthlyTotal) {
+                  $(function () {
                      var Jan = Number()
                      var Feb = Number()
                      var Mar = Number()
@@ -127,8 +127,9 @@ $(document).ready(function() {
                         }
                      }
 
-                     new Morris.Bar({
+                     window.m = Morris.Bar({
                         element: 'morris-bar-chart',
+                        resize: true,
                         data: [
                            { y: 'Jan', a: Jan},
                            { y: 'Feb', a: Feb},
@@ -156,10 +157,14 @@ $(document).ready(function() {
                            }
                         }
                      })
-
+                  })
                }reorderList(monthlyTotal)
             }getTotalByMonth(data)
          }
       })
    }call()
 })
+
+$(window).on("resize", function(){
+      m.redraw();
+   });

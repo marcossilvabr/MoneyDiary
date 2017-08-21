@@ -30,7 +30,7 @@
 
    </head>
 
-   <body id="animated">
+   <body>
 
       <div id="wrapper">
 
@@ -192,7 +192,11 @@
                     <div id="current-month-heading" class="panel-heading">
                       <h5>Cashflow This Month:</h5>
                     </div>
-                    <div id="current-month-panel" class="panel-body"></div>
+                    <div id="current-month-panel" class="panel-body">
+                       <div id="dashboard-helper">
+                        <i class="fa fa-info-circle fa-2x text-primary" data-placement="bottom" data-toggle="popover" title="Your total running cashflow" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
+                     </div>
+                    </div>
                   </div>
                 </div>
 
@@ -201,7 +205,11 @@
                     <div id="highest-cashflow-heading" class="panel-heading">
                       <h5>Highest Monthly Cashflow:</h5>
                     </div>
-                    <div id="highest-cashflow-panel" class="panel-body"></div>
+                    <div id="highest-cashflow-panel" class="panel-body">
+                       <div id="dashboard-helper">
+                        <i class="fa fa-info-circle fa-2x text-primary" data-placement="bottom" data-toggle="popover" title="Your total running cashflow" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
+                     </div>
+                    </div>
                   </div>
                 </div>
 
@@ -210,7 +218,11 @@
                     <div id="average-cashflow-heading" class="panel-heading">
                       <h5>Average Monthly Cashflow:</h5>
                     </div>
-                    <div id="average-cashflow-panel" class="panel-body"></div>
+                    <div id="average-cashflow-panel" class="panel-body">
+                     <div id="dashboard-helper">
+                        <i class="fa fa-info-circle fa-2x text-primary" data-placement="bottom" data-toggle="popover" title="Your total running cashflow" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
+                     </div>
+                    </div>
                   </div>
                 </div>
 
@@ -219,7 +231,11 @@
                     <div id="lowest-cashflow-heading" class="panel-heading">
                       <h5>Lowest Monthly Cashflow:</h5>
                     </div>
-                    <div id="lowest-cashflow-panel" class="panel-body"></div>
+                    <div id="lowest-cashflow-panel" class="panel-body">
+                       <div id="dashboard-helper">
+                        <i class="fa fa-info-circle fa-2x text-primary" data-placement="bottom" data-toggle="popover" title="Your total running cashflow" data-content="Click to add an Expense or Income" data-trigger="hover" id="returnPopover" data-original-title="Test"></i>
+                     </div>
+                    </div>
                   </div>
                 </div>
 
@@ -324,6 +340,12 @@
 
       <!-- Dashboard -->
       <script src="/scripts/dashboard.js"></script>
+
+      <script>
+         $(document).ready(function(){
+             $('[data-toggle="popover"]').popover();
+         });
+      </script>
 
    </body>
 </html>
