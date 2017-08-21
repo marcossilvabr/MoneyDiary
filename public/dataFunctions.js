@@ -92,6 +92,18 @@ let result =
 // Parsing the JSON
 const data = result['data']
 
+function reorderData(data) {
+
+  let newData = []
+
+  data.forEach(( element ) => {
+
+
+
+  })
+
+}
+reorderData(data)
 
 // -> Category Total By Month <- //
 
@@ -107,24 +119,35 @@ function categoryTotal(data) {
 
     if ( !dataObject[category] ) {
       dataObject[category] = [{ month  : month,
-                                amount : amount }]
+                                amount : Number(amount) }]
 
+    } else if ( dataObject[category] ) {
 
-    // console.log(dataObject[category][0]);
+      dataObject[category].forEach(( element, index ) => {
 
-    } else if ( dataObject[category][0] ) {
+        if ( dataObject[category][index]['month'] == month ) {
 
-      console.log(category);
-      console.log(dataObject[category]);
+          dataObject[category][index]['amount'] += Number(amount)
 
-      dataObject[category].push({ month  : month,
-                                  amount : amount })
+        }
+
+        if ( index == dataObject[category].length-1 ) {
+
+          if ( dataObject[category][index]['month'] != month ) {
+
+            dataObject[category].push({ month  : month,
+                                        amount : amount })
+
+          }
+        }
+
+      })
 
     }
 
   })
 
-  // console.log(dataObject);
+  console.log(dataObject);
 
   for ( category in dataObject ) {
 
@@ -144,7 +167,7 @@ function categoryTotal(data) {
 
 }
 
-categoryTotal(data)
+// categoryTotal(data)
 
 
 // -> Monthly Total Functions <- //
