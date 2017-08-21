@@ -715,3 +715,12 @@ input[type=number]::-webkit-inner-spin-button {
     text-decoration: none;
     cursor: pointer;
 }
+
+#dashboard-helper {
+  color: black;
+  float: right;
+}
+
+#current-month-panel, #highest-cashflow-panel, #average-cashflow-panel, #lowest-cashflow-panel {
+  font-weight: bolder;
+}
