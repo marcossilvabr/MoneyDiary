@@ -68,7 +68,7 @@ let result =
     {
     "DT_RowId": "599352b249baae3d64ce412e",
     "date": "2017/07/15",
-    "amount": "400",
+    "amount": "420",
     "category": "Salary",
     "note": "new"
     },
@@ -97,33 +97,54 @@ const data = result['data']
 
 function categoryTotal(data) {
 
-  dataObject = {}
+  let dataObject = {}
+  let dataArray  = []
 
   data.forEach(( element ) => {
     let month    = element['date'].split('/', 2).join('/')
     let category = element['category']
     let amount   = element['amount']
 
-    if ( !dataObject[month] ) {
-      dataObject[month] = { category : category,
-                            amount   : amount }
+    if ( !dataObject[category] ) {
+      dataObject[category] = [{ month  : month,
+                                amount : amount }]
+
+
+    // console.log(dataObject[category][0]);
+
+    } else if ( dataObject[category][0] ) {
+
+      console.log(category);
+      console.log(dataObject[category]);
+
+      dataObject[category].push({ month  : month,
+                                  amount : amount })
 
     }
-    // else if ( !dataObject[month]['category'] ) {
-    //   dataObject[month] = { category : category,
-    //                         amount   : amount }
-    // }
-
-
 
   })
 
-  console.log(dataObject);
+  // console.log(dataObject);
 
+  for ( category in dataObject ) {
+
+    let categoryArray = dataObject[category]
+
+    categoryArray.forEach(( element ) => {
+
+      dataArray.push({ month    : element['month'],
+                       category : category,
+                        amount  : element['amount'] })
+
+    })
+
+  }
+
+  // console.log(dataArray);
 
 }
 
-// categoryTotal(data)
+categoryTotal(data)
 
 
 // -> Monthly Total Functions <- //
@@ -202,7 +223,7 @@ function getTotalByMonth(data) {
 
 
 }
-console.log(getTotalByMonth(data))
+// console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
@@ -279,3 +300,18 @@ function currentMonth(getTotalByMonth, data) {
 
 }
 // console.log(currentMonth(getTotalByMonth, data))
+
+
+function runningTotal(getTotalByMonth, data) {
+
+  const totalByMonth = getTotalByMonth(data)
+  let total          = 0
+
+  totalByMonth.forEach(( element ) => {
+    total += element['amount']
+  })
+
+  return total
+
+}
+// console.log(runningTotal(getTotalByMonth, data))
