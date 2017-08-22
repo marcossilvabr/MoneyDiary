@@ -132,17 +132,20 @@ function categoryTotal(data) {
     }
   })
 
-  console.log(dataObject);
+  // console.log(dataObject);
 
   for ( category in dataObject ) {
 
     let categoryArray = dataObject[category]
+    console.log(category);
+    console.log(categoryArray);
 
-    categoryArray.forEach(( element ) => {
+    categoryArray.forEach(( element, index ) => {
+      // console.log(index);
+      // console.log(category);
+      // console.log(element);
 
-      dataArray.push({ month    : element['month'],
-                       category : category,
-                        amount  : element['amount'] })
+
 
     })
 
@@ -231,7 +234,7 @@ function getTotalByMonth(data) {
 
 
 }
-console.log(getTotalByMonth(data))
+// console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {

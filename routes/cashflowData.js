@@ -14,7 +14,7 @@ module.exports = () => {
 
     let newData = { "data": [] }
 
-    data.forEach((element, index, array) => {
+    data.forEach(( element ) => {
       let dataItem = {
         DT_RowId : element['_id'],
         date     : element['date'],
@@ -27,6 +27,22 @@ module.exports = () => {
 
     res.json(newData);
     })
+  })
+
+  router.get("/categories", (req, res) => {
+
+    let user = req.user._id
+    Data.find({ user: user }).sort({ datetime: 1 }).exec((err, data) => {
+      if (err)
+        res.send(err);
+
+    let newData = { "data": [] }
+
+
+
+
+    })
+
   })
 
   // Put Cashflow Item into Database
@@ -91,6 +107,3 @@ module.exports = () => {
   return router
 
 }
-
-
-// .sort({ datetime: 1 }).exec(
