@@ -151,7 +151,7 @@ $(document).ready(() => {
       const lowestCashflow      = lowestMonth(getTotalByMonth, data)
 
       let monthTotalNumber      = $(`<p>$${monthTotal}</p>`)
-      let overallCashflowNumber = $(`<h4>Overall Cashflow: $${overallCashflow}</h4>`)
+      let overallCashflowNumber = $(`<h4>Total available: $${overallCashflow}</h4>`)
       let highestCashflowNumber = $(`<p>$${highestCashflow.amount}</p>`)
       let averageMonthNumber    = $(`<p>$${averageMonth}</p>`)
       let lowestCashflowNumber  = $(`<p>$${lowestCashflow.amount}</p>`)
