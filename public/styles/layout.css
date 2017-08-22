@@ -15,8 +15,12 @@ body {
   color: #454b53;
 }
 
+.preload {
+  display: none !important;
+}
+
 .login {
-  background-image: url("/images/login.jpg");
+  background: url("/images/login.jpg");
   background-color: #fff;
   background-size: cover;
   background-position: right center;
