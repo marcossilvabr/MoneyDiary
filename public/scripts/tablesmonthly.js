@@ -11,6 +11,14 @@ $(document).ready(function() {
         "dom": 'rtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
+        "columnDefs": [{
+            "targets": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "createdCell": function (td, cellData, rowData, row, col) {
+                if (cellData < 0) {
+                    $(td).addClass('negative-number')
+                }
+            }
+        }],
         "columns": [
             { "data": "category" },
             { "data": "amount.0"},
