@@ -743,5 +743,15 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 td.highlight {
-    background-color: whitesmoke !important;
+    background-color: #9e9b9b !important;
+}
+
+#monthly .sorting_1 {
+  background-color: #1cc09f !important;
+  color: white !important;
+}
+
+#monthly .sorting_1.highlight {
+  background-color: #1cc09f !important;
+  color: white !important;
 }
