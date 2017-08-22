@@ -56,7 +56,13 @@
                <a class="navbar-brand" href="index.html">MoneyDiary</a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
-            <div style="color:white; display:inline;"><%= user.facebook.name %></div>
+               <div style="color:white; display:inline">
+                  <% if ( user.facebook.name ) { %>
+                     <%= user.facebook.name %>
+                  <% } else { %>
+                     <%= user.local.email %>
+                  <% } %>
+               </div>
                <li class="dropdown">
                   <a class="dropdown-toggle" id="user-dropdown" data-toggle="dropdown" href="#">
                      <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
