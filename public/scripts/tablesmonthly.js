@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var everything = $('#monthly').DataTable({
         ajax: {
-            url: '/test.json',
+            url: '/cashflowData/categories',
         },
         "scrollX": true,
         "scrollY": "400px",
