@@ -93,6 +93,7 @@ let result =
 const data = result['data']
 
 
+
 // -> Category Total By Month <- //
 
 function categoryTotal(data) {
@@ -172,7 +173,7 @@ function categoryTotal(data) {
   return finalArray
 
 }
-console.log(categoryTotal(data));
+// console.log(categoryTotal(data));
 
 
 

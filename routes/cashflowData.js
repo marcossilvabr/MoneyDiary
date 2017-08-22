@@ -36,13 +36,86 @@ module.exports = () => {
       if (err)
         res.send(err);
 
-    let newData = { "data": [] }
+        // console.log(data);
 
+    let newData
 
+    function categoryTotal(data) {
 
+      let dataObject = {}
+      let dataArray  = []
+
+      data.forEach(( element ) => {
+        let month    = element['date'].split('/', 2).join('/')
+        let category = element['category']
+        let amount   = Number(element['amount'])
+
+        if ( !dataObject[category] ) {
+          dataObject[category] = [{ month  : month,
+                                    amount : Number(amount) }]
+
+        } else if ( dataObject[category] ) {
+
+          dataObject[category].forEach(( element, index ) => {
+
+            if ( dataObject[category][index]['month'] == month ) {
+
+              dataObject[category][index]['amount'] += Number(amount)
+
+            }
+
+            if ( index == dataObject[category].length-1 ) {
+
+              if ( dataObject[category][index]['month'] != month ) {
+
+                dataObject[category].push({ month  : month,
+                                            amount : amount })
+
+              }
+            }
+          })
+        }
+      })
+
+      let finalArray = []
+
+      for ( category in dataObject ) {
+
+        let categoryArray = dataObject[category]
+
+        finalArray.push({ category : category, amount : [] })
+
+        categoryArray.forEach(( element, index ) => {
+
+          let date = element['month'].split('/', 2)[1]
+          let place = finalArray.length-1
+
+          if ( index == 0) {
+
+            for ( let i = 1 ; i <= 12; i++ ) {
+
+              if ( date == i ) {
+                finalArray[place]['amount'].push(Number(element['amount']))
+              } else {
+                finalArray[place]['amount'].push(0)
+              }
+            }
+
+          } else {
+
+            finalArray[place]['amount'][Number(date)-1] += element['amount']
+
+          }
+        })
+      }
+      return finalArray
+    }
+
+    newData = { data : categoryTotal(data) }
+
+    res.json(newData);
 
     })
-
   })
 
   // Put Cashflow Item into Database
