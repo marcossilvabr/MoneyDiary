@@ -4,6 +4,13 @@ let result =
   "data": [
     {
     "DT_RowId": "599352b249baae3d64ce412e",
+    "date": "2017/07/15",
+    "amount": "420",
+    "category": "Salary",
+    "note": "new"
+    },
+    {
+    "DT_RowId": "599352b249baae3d64ce412e",
     "date": "2017/08/15",
     "amount": "400",
     "category": "Salary",
@@ -74,13 +81,6 @@ let result =
     },
     {
     "DT_RowId": "599352b249baae3d64ce412e",
-    "date": "2017/07/15",
-    "amount": "420",
-    "category": "Salary",
-    "note": "new"
-    },
-    {
-    "DT_RowId": "599352b249baae3d64ce412e",
     "date": "2017/11/15",
     "amount": "400",
     "category": "Salary",
@@ -103,7 +103,7 @@ function categoryTotal(data) {
   data.forEach(( element ) => {
     let month    = element['date'].split('/', 2).join('/')
     let category = element['category']
-    let amount   = element['amount']
+    let amount   = Number(element['amount'])
 
     if ( !dataObject[category] ) {
       dataObject[category] = [{ month  : month,
@@ -134,28 +134,46 @@ function categoryTotal(data) {
 
   // console.log(dataObject);
 
+  let finalArray = []
+
   for ( category in dataObject ) {
 
     let categoryArray = dataObject[category]
-    console.log(category);
-    console.log(categoryArray);
+
+    finalArray.push({ category : category, amount : [] })
 
     categoryArray.forEach(( element, index ) => {
-      // console.log(index);
-      // console.log(category);
-      // console.log(element);
 
+      let date = element['month'].split('/', 2)[1]
+      let place = finalArray.length-1
 
+      if ( index == 0) {
+
+        for ( let i = 1 ; i <= 12; i++ ) {
+
+          if ( date == i ) {
+            finalArray[place]['amount'].push(Number(element['amount']))
+          } else {
+            finalArray[place]['amount'].push(0)
+          }
+
+        }
+
+      } else {
+
+        finalArray[place]['amount'][Number(date)-1] += element['amount']
+
+      }
 
     })
 
   }
 
-  // return dataArray
+  return finalArray
 
 }
-// console.log(categoryTotal(data));
-categoryTotal(data)
+console.log(categoryTotal(data));
+
 
 
 // -> Monthly Total Functions <- //
