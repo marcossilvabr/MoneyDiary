@@ -145,19 +145,19 @@ $(document).ready(() => {
       // -> DOM Manipulation <- //
 
       const monthTotal          = currentMonth(getTotalByMonth, data)
-      // const overallCashflow     = runningTotal(getTotalByMonth, data)
+      const overallCashflow     = runningTotal(getTotalByMonth, data)
       const highestCashflow     = highestMonth(getTotalByMonth, data)
       const averageMonth        = Math.round(averageOfMonths(getTotalByMonth, data))
       const lowestCashflow      = lowestMonth(getTotalByMonth, data)
 
       let monthTotalNumber      = $(`<p>$${monthTotal}</p>`)
-      // let overallCashflowNumber = $(`<p>$${overallCashflow}</p>`)
+      let overallCashflowNumber = $(`<h4>Overall Cashflow: $${overallCashflow}</h4>`)
       let highestCashflowNumber = $(`<p>$${highestCashflow.amount}</p>`)
       let averageMonthNumber    = $(`<p>$${averageMonth}</p>`)
       let lowestCashflowNumber  = $(`<p>$${lowestCashflow.amount}</p>`)
 
       $('#current-month-panel').append(monthTotalNumber)
-      // $('#overall-cashflow-panel').append(overallCashflowNumber)
+      $('#total-cashflow').append(overallCashflowNumber)
       $('#highest-cashflow-panel').append(highestCashflowNumber)
       $('#average-cashflow-panel').append(averageMonthNumber)
       $('#lowest-cashflow-panel').append(lowestCashflowNumber)

@@ -16,11 +16,11 @@ module.exports = () => {
 
     data.forEach((element, index, array) => {
       let dataItem = {
-        DT_RowId: element['_id'],
-        date: element['date'],
-        amount: `${element['amount']}`,
-        category: element['category'],
-        note: element['note']
+        DT_RowId : element['_id'],
+        date     : element['date'],
+        amount   : `${element['amount']}`,
+        category : element['category'],
+        note     : element['note'],
         }
       newData["data"].push(dataItem)
     })
@@ -36,6 +36,7 @@ module.exports = () => {
     let amount   = Number(req.body.amount)
     let note     = req.body.note
     let category = req.body.category
+    let datetime = Date.parse(req.body.djoined)
 
     category.forEach((index) => {
       if ( index != '' ) {
@@ -66,6 +67,7 @@ module.exports = () => {
       data.note     = note
       data.category = category
       data.user     = req.user._id
+      data.datetime = datetime
 
       data.save((err) => {
         if (err)
@@ -89,3 +91,6 @@ module.exports = () => {
   return router
 
 }
+
+
+// .sort({ datetime: 1 }).exec(
