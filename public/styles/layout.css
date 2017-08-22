@@ -61,10 +61,10 @@ body {
   margin-right: 0;
 }
 .navbar-top-links li {
-  display: inline-block;
+  display: inline-block !important;
 }
 .navbar-top-links li:last-child {
-  margin-right: 15px;
+  margin-right: 15px !important;
 }
 .navbar-top-links li a {
   padding: 15px;
@@ -723,4 +723,17 @@ input[type=number]::-webkit-inner-spin-button {
 
 #current-month-panel, #highest-cashflow-panel, #average-cashflow-panel, #lowest-cashflow-panel {
   font-weight: bolder;
+}
+
+#user-dropdown:hover {
+  color: #1cc09f;
+}
+
+#user-dropdown:focus {
+  color: #1cc09f;
+}
+
+#name-bar {
+  color:white;
+  display:inline;
 }
