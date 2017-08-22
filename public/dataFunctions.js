@@ -10,6 +10,13 @@ let result =
     "note": "blah"
     },
     {
+    "DT_RowId": "599352b249baae3d64ce412e",
+    "date": "2017/08/15",
+    "amount": "400",
+    "category": "Salary",
+    "note": "blah"
+    },
+    {
     "DT_RowId": "59936a9e493c9a47375f7af8",
     "date": "2017/08/15",
     "amount": "-50",
@@ -78,13 +85,6 @@ let result =
     "amount": "400",
     "category": "Salary",
     "note": "next new"
-    },
-    {
-    "DT_RowId": "599352b249baae3d64ce412e",
-    "date": "2017/08/15",
-    "amount": "400",
-    "category": "Salary",
-    "note": "blah"
     }
   ]
 }
@@ -92,18 +92,6 @@ let result =
 // Parsing the JSON
 const data = result['data']
 
-function reorderData(data) {
-
-  let newData = []
-
-  data.forEach(( element ) => {
-
-
-
-  })
-
-}
-reorderData(data)
 
 // -> Category Total By Month <- //
 
@@ -140,14 +128,11 @@ function categoryTotal(data) {
 
           }
         }
-
       })
-
     }
-
   })
 
-  // console.log(dataObject);
+  console.log(dataObject);
 
   for ( category in dataObject ) {
 
@@ -163,10 +148,10 @@ function categoryTotal(data) {
 
   }
 
-  console.log(dataArray);
+  // return dataArray
 
 }
-
+// console.log(categoryTotal(data));
 categoryTotal(data)
 
 
@@ -246,7 +231,7 @@ function getTotalByMonth(data) {
 
 
 }
-// console.log(getTotalByMonth(data))
+console.log(getTotalByMonth(data))
 
 
 function highestMonth(getTotalByMonth, data) {
