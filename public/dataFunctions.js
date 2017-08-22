@@ -147,7 +147,7 @@ function categoryTotal(data) {
 
   })
 
-  console.log(dataObject);
+  // console.log(dataObject);
 
   for ( category in dataObject ) {
 
@@ -163,11 +163,11 @@ function categoryTotal(data) {
 
   }
 
-  // console.log(dataArray);
+  console.log(dataArray);
 
 }
 
-// categoryTotal(data)
+categoryTotal(data)
 
 
 // -> Monthly Total Functions <- //
