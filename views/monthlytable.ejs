@@ -49,14 +49,20 @@
                <a class="navbar-brand" href="index.html">MoneyDiary</a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
+               <div style="color:white; display:inline">
+                 <% if ( user.facebook.name ) { %>
+                   <%= user.facebook.name %>
+                 <% } else { %>
+                   <%= user.local.email %>
+                 <% } %>
+               </div>
+
                <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <a class="dropdown-toggle" id="user-dropdown" data-toggle="dropdown" href="#">
                      <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                   </a>
-                  <ul class="dropdown-menu dropdown-user">
-                     <li><a href="/user/profile"><i class="fa fa-user fa-fw"></i>Profile</a></li>
-                     <li class="divider"></li>
-                     <li><a href="/user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                  <ul class="dropdown-menu dropdown-user" >
+                    <li><a href="/user/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                   </ul>
                </li>
             </ul>
@@ -72,21 +78,13 @@
                         <a href="/cashflow"><i class="fa fa-edit fa-fw"></i> Cash Flow</a>
                      </li>
                      <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                           <li>
-                              <a href="flot.html">Flot Charts</a>
-                           </li>
-                           <li>
-                              <a href="morris.html">Morris.js Charts</a>
-                           </li>
-                        </ul>
+                        <a href="/monthlytable"><i class="fa fa-table fa-fw"></i> Monthly Table</a>
                      </li>
                      <li>
-                        <a href="/mortgage"><i class="fa fa-table fa-fw"></i> Mortgage Wizard</a>
+                        <a href="/mortgage"><i class="fa fa-usd fa-fw"></i> Mortgage Wizard</a>
                      </li>
                      <li>
-                        <a href="investment"><i class="fa fa-edit fa-fw"></i> Investment Wizard</a>
+                        <a href="/investment"><i class="fa fa-money fa-fw"></i> Investment Wizard</a>
                      </li>
                   </ul>
                </div>

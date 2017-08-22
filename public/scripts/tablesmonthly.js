@@ -3,6 +3,11 @@ $(document).ready(function() {
         ajax: {
             url: '/test.json',
         },
+        "scrollX": true,
+        "scrollY": "400px",
+        "paging": false,
+        "scrollCollapse": true,
+        "fixedColumns": true,
         "dom": 'rtip',
         "order": [[0, "desc"]],
         "iDisplayLength": 50,
@@ -21,5 +26,59 @@ $(document).ready(function() {
             { "data": "amount.10" },
             { "data": "amount.11" },
         ],
+
+        "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                i.replace(/[\$,]/g, '')*1 :
+                typeof i === 'number' ?
+                i : 0;
+            };
+
+            // Total over all pages
+            for (var i = 1; i <= 12; i++) {
+                total = api
+                    .column( i )
+                    .data()
+                    .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+
+
+                // Total over this page
+                pageTotal = api
+                    .column( i, { page: 'current'} )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                }, 0 );
+
+                // Update footer
+                $( api.column( i ).footer() ).html(
+                    '$'+ total
+                );
+            }
+
+            $( api.column( 0 ).footer() ).html(
+                'Total'
+            );
+
+        }
+
+
+
     });
+
+    $('#monthly tbody')
+        .on( 'mouseenter', 'td', function () {
+            var colIdx = everything.cell(this).index().column;
+
+            $( everything.cells().nodes() ).removeClass( 'highlight' );
+            $( everything.rows().nodes() ).removeClass( 'odd' );
+            $( everything.column( colIdx ).nodes() ).addClass( 'highlight' );
+    })
+
 })
