@@ -22,4 +22,13 @@ $(document).ready(function() {
             { "data": "amount.11" },
         ],
     });
+
+    $('#monthly tbody')
+        .on( 'mouseenter', 'td', function () {
+            var colIdx = everything.cell(this).index().column;
+
+            $( everything.cells().nodes() ).removeClass( 'highlight' );
+            $( everything.rows().nodes() ).removeClass( 'odd' );
+            $( everything.column( colIdx ).nodes() ).addClass( 'highlight' );
+        })
 })
