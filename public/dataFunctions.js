@@ -184,20 +184,20 @@ function categoryTotal(data) {
 function getTotalByMonth(data) {
 
   // Sets the current month to the first month available
-  let currentMonth = data[0]['date'].split('/', 2).join('/')
-  let runningTotal = 0
-  let monthlyTotal = []
-  let monthObject    = {}
+  let currentMonth    = data[0]['date'].split('/', 2).join('/')
+  let runningTotal    = 0
+  let monthlyTotal    = []
+  let monthObject     = {}
   let newMonthlyTotal = []
 
   data.forEach(( element, index ) => {
 
-    const date         = new Date()
-    const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
-
+    // const date         = new Date()
+    // const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
+    //
     let month = element['date'].split('/', 2).join('/')
-
-    if ( Date.parse(month) != currentDate ) {
+    //
+    // if ( Date.parse(month) != currentDate ) {
 
     // If the element is not the last one in the array:
 
@@ -234,7 +234,7 @@ function getTotalByMonth(data) {
 
       }
 
-    }
+    // }
   })
 
   // To reorder list and add out of order elements together
@@ -268,6 +268,7 @@ console.log(getTotalByMonth(data))
 function highestMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
+  console.log(totalByMonth);
   let highest        = totalByMonth[0]
 
   totalByMonth.forEach(( element ) => {
