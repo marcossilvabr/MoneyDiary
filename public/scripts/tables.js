@@ -11,9 +11,10 @@ $(document).ready(function() {
                 }
             }
         }],
-        "dom": 'ftip',
+        "dom": 'tip',
         "order": [[0, "desc"]],
-        "iDisplayLength": 200,
+        "paging": false,
+        // "iDisplayLength": 200,
         "columns": [
             { "data": "date" },
             { "data": "amount" },
