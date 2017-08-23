@@ -47,6 +47,18 @@ $("#bar-collapse").click(function() {
   $("#bar-pannel").toggle( "slow" )
 })
 
+$("#filter-year").change(function() {
+  var value = $(this).val()
+  $(this).find('option[selected="selected"]').attr("selected", false)
+  $(this).find('option[value="' + value + '"]').attr("selected", "selected")
+})
+
+$("#filter-month").change(function() {
+  var value = $(this).val()
+  $(this).find('option[selected="selected"]').attr("selected", false)
+  $(this).find('option[value="' + value + '"]').attr("selected", "selected")
+})
+
 // Prevent negative numbers in the amount input
 function isNumberKey(e){
   if(!((e.keyCode > 95 && e.keyCode < 106)

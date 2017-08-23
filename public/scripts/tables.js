@@ -11,7 +11,7 @@ $(document).ready(function() {
                 }
             }
         }],
-        "dom": 'tip',
+        "dom": 'ftip',
         "order": [[0, "desc"]],
         "iDisplayLength": 200,
         "columns": [
@@ -121,15 +121,11 @@ $(document).ready(function() {
     })
 
     $('#search-table').on('keyup', function() {
-        var year = new Date().getFullYear()
-        var month = new Date().getMonth()
-        var filter = function (month) {
-            if (month < 10) {
-                return "0" + (month + 1)
-            }
-        }
+        var year = $('#filter-year').find('option[selected="selected"]').val() //new Date().getFullYear()
+        var month = $('#filter-month').find('option[selected="selected"]').val()
+
         $('#empty').prop("selected", true)
-        everything.search(year + "/" + filter(month) + " " + $(this).val()).draw()
+        everything.search(year + "/" + month + " " + $(this).val()).draw()
     })
 
 })
