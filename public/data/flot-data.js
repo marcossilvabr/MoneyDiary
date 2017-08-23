@@ -103,6 +103,9 @@ function call() {
                 label: "Misc",
                 data: totalMisc
             }, {
+                label: "Mortgage/Rent",
+                data: totalMortgage
+            }, {
                 label: "Phone/TV/Internet/Utilities",
                 data: totalPhone
             }, {
