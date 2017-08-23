@@ -90,7 +90,7 @@ $(document).ready(function() {
 
             // Update footer
             $( api.column( 1 ).footer() ).html(
-                '$'+pageTotal +' ( $'+ total +' total)'
+                '$'+pageTotal.toFixed(2) +' ( $'+ total.toFixed(2) +' total)'
             );
 
             $("#wallet-balance .append").html( '$' + total );
