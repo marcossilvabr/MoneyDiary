@@ -66,7 +66,7 @@ $(document).ready(function() {
 
                 // Update footer
                 $( api.column( i ).footer() ).html(
-                    '$'+ total
+                    '$'+ total.toFixed(2)
                 );
             }
 

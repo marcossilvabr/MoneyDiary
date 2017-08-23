@@ -150,11 +150,11 @@ $(document).ready(() => {
       const averageMonth        = Math.round(averageOfMonths(getTotalByMonth, data))
       const lowestCashflow      = lowestMonth(getTotalByMonth, data)
 
-      let monthTotalNumber      = $(`<p>$${monthTotal}</p>`)
-      let overallCashflowNumber = $(`<h4>Total available: $${overallCashflow}</h4>`)
-      let highestCashflowNumber = $(`<p>$${highestCashflow.amount}</p>`)
-      let averageMonthNumber    = $(`<p>$${averageMonth}</p>`)
-      let lowestCashflowNumber  = $(`<p>$${lowestCashflow.amount}</p>`)
+      let monthTotalNumber      = $(`<p>$${monthTotal.toFixed(2)}</p>`)
+      let overallCashflowNumber = $(`<h4>Total available: $${overallCashflow.toFixed(2)}</h4>`)
+      let highestCashflowNumber = $(`<p>$${highestCashflow.amount.toFixed(2)}</p>`)
+      let averageMonthNumber    = $(`<p>$${averageMonth.toFixed(2)}</p>`)
+      let lowestCashflowNumber  = $(`<p>$${lowestCashflow.amount.toFixed(2)}</p>`)
 
       $('#current-month-panel').append(monthTotalNumber)
       $('#total-cashflow').append(overallCashflowNumber)
