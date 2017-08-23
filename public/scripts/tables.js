@@ -11,16 +11,15 @@ $(document).ready(function() {
                 }
             }
         }],
-        "dom": 'rtip',
+        "dom": 'tip',
         "order": [[0, "desc"]],
-        "iDisplayLength": 50,
+        "iDisplayLength": 200,
         "columns": [
             { "data": "date" },
             { "data": "amount" },
             { "data": "category" },
             { "data": "note" },
             ],
-
 
         initComplete: function () {
             this.api().columns(0).every( function () {
@@ -120,4 +119,17 @@ $(document).ready(function() {
             }
         })
     })
+
+    $('#search-table').on('keyup', function() {
+        var year = new Date().getFullYear()
+        var month = new Date().getMonth()
+        var filter = function (month) {
+            if (month < 10) {
+                return "0" + (month + 1)
+            }
+        }
+        $('#empty').prop("selected", true)
+        everything.search(year + "/" + filter(month) + " " + $(this).val()).draw()
+    })
+
 })
