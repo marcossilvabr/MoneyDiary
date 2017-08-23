@@ -127,7 +127,7 @@ function call() {
                 },
                 tooltip: true,
                 tooltipOpts: {
-                    content: "%p.2%, <br>$%y.2, <br>%s", // show percentages, rounding to 2 decimal places
+                    content: "%p.2% <br>$%y.2 <br>%s", // show percentages, rounding to 2 decimal places
                     shifts: {
                         x: 20,
                         y: 0
