@@ -36,6 +36,7 @@ module.exports = () => {
       if (err)
         res.send(err);
 
+
     let newData
 
     function categoryTotal(data) {
@@ -101,7 +102,7 @@ module.exports = () => {
 
           } else {
 
-            finalArray[place]['amount'][Number(date)-1] += element['amount']
+            finalArray[place]['amount'][Number(date)-1] += Math.round(element['amount'] * 100) / 100
 
           }
         })
