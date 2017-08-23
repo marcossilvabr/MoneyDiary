@@ -192,16 +192,7 @@ function getTotalByMonth(data) {
 
   data.forEach(( element, index ) => {
 
-<<<<<<< HEAD
-    // const date         = new Date()
-    // const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
-    //
     let month = element['date'].split('/', 2).join('/')
-    //
-    // if ( Date.parse(month) != currentDate ) {
-=======
-    let month = element['date'].split('/', 2).join('/')
->>>>>>> master
 
     // If the element is not the last one in the array:
 
@@ -238,7 +229,6 @@ function getTotalByMonth(data) {
 
       }
 
-    // }
   })
 
   // To reorder list and add out of order elements together
@@ -273,7 +263,7 @@ function highestMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
   let newTotal       = []
-  let highest        = totalByMonth[0]
+  let highest
 
   totalByMonth.forEach(( element ) => {
     const date         = new Date()
@@ -285,6 +275,8 @@ function highestMonth(getTotalByMonth, data) {
     }
 
   })
+
+  highest = newTotal[0]
 
   newTotal.forEach(( element ) => {
     if (highest['amount'] < element['amount']) {
@@ -292,17 +284,18 @@ function highestMonth(getTotalByMonth, data) {
     }
   })
 
+  console.log(highest);
   return highest
 
 }
 // console.log(highestMonth(getTotalByMonth, data))
-
+highestMonth(getTotalByMonth, data)
 
 function lowestMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
   let newTotal       = []
-  let lowest         = totalByMonth[0]
+  let lowest
 
   totalByMonth.forEach(( element ) => {
     const date         = new Date()
@@ -314,6 +307,8 @@ function lowestMonth(getTotalByMonth, data) {
     }
 
   })
+
+  lowest = newTotal[0]
 
   newTotal.forEach(( element ) => {
     if (lowest['amount'] > element['amount']) {
@@ -354,7 +349,7 @@ function averageOfMonths(getTotalByMonth, data) {
   return mean
 
 }
-console.log(averageOfMonths(getTotalByMonth, data))
+// console.log(averageOfMonths(getTotalByMonth, data))
 
 
 function currentMonth(getTotalByMonth, data) {

@@ -102,7 +102,7 @@ $(document).ready(() => {
 
         const totalByMonth = getTotalByMonth(data)
         let newTotal       = []
-        let highest        = totalByMonth[0]
+        let highest
 
         totalByMonth.forEach(( element ) => {
           const date         = new Date()
@@ -114,6 +114,8 @@ $(document).ready(() => {
           }
 
         })
+
+        highest = newTotal[0]
 
         newTotal.forEach(( element ) => {
           if (highest['amount'] < element['amount']) {
@@ -128,7 +130,7 @@ $(document).ready(() => {
 
         const totalByMonth = getTotalByMonth(data)
         let newTotal       = []
-        let lowest         = totalByMonth[0]
+        let lowest
 
         totalByMonth.forEach(( element ) => {
           const date         = new Date()
@@ -140,6 +142,8 @@ $(document).ready(() => {
           }
 
         })
+
+        lowest = newTotal[0]
 
         newTotal.forEach(( element ) => {
           if (lowest['amount'] > element['amount']) {
