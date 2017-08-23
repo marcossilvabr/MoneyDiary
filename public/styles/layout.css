@@ -755,3 +755,12 @@ td.highlight {
   background-color: #1cc09f !important;
   color: white !important;
 }
+
+#search-input {
+  width: 20%;
+  height: 10px;
+  padding-top: 10px;
+  padding-left: 13px;
+  padding-right: 14px;
+  float: right;
+}
