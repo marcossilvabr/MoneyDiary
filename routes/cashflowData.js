@@ -36,8 +36,6 @@ module.exports = () => {
       if (err)
         res.send(err);
 
-        // console.log(data);
-
     let newData
 
     function categoryTotal(data) {
