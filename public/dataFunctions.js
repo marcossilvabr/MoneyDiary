@@ -192,12 +192,16 @@ function getTotalByMonth(data) {
 
   data.forEach(( element, index ) => {
 
+<<<<<<< HEAD
     // const date         = new Date()
     // const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
     //
     let month = element['date'].split('/', 2).join('/')
     //
     // if ( Date.parse(month) != currentDate ) {
+=======
+    let month = element['date'].split('/', 2).join('/')
+>>>>>>> master
 
     // If the element is not the last one in the array:
 
@@ -261,17 +265,28 @@ function getTotalByMonth(data) {
 
 
 }
-console.log(getTotalByMonth(data))
+// console.log(getTotalByMonth(data))
 // getTotalByMonth(data)
 
 
 function highestMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
-  console.log(totalByMonth);
+  let newTotal       = []
   let highest        = totalByMonth[0]
 
   totalByMonth.forEach(( element ) => {
+    const date         = new Date()
+    const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
+    let month = element['date'].split('/', 2).join('/')
+
+    if ( Date.parse(month) != currentDate ) {
+      newTotal.push(element)
+    }
+
+  })
+
+  newTotal.forEach(( element ) => {
     if (highest['amount'] < element['amount']) {
       highest = element
     }
@@ -286,9 +301,21 @@ function highestMonth(getTotalByMonth, data) {
 function lowestMonth(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
+  let newTotal       = []
   let lowest         = totalByMonth[0]
 
   totalByMonth.forEach(( element ) => {
+    const date         = new Date()
+    const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
+    let month = element['date'].split('/', 2).join('/')
+
+    if ( Date.parse(month) != currentDate ) {
+      newTotal.push(element)
+    }
+
+  })
+
+  newTotal.forEach(( element ) => {
     if (lowest['amount'] > element['amount']) {
       lowest = element
     }
@@ -303,10 +330,22 @@ function lowestMonth(getTotalByMonth, data) {
 function averageOfMonths(getTotalByMonth, data) {
 
   const totalByMonth = getTotalByMonth(data)
+  let newTotal       = []
   let sum            = 0
   let mean           = 0
 
   totalByMonth.forEach(( element ) => {
+    const date         = new Date()
+    const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
+    let month = element['date'].split('/', 2).join('/')
+
+    if ( Date.parse(month) != currentDate ) {
+      newTotal.push(element)
+    }
+
+  })
+
+  newTotal.forEach(( element ) => {
     sum += element['amount']
   })
 
@@ -315,7 +354,7 @@ function averageOfMonths(getTotalByMonth, data) {
   return mean
 
 }
-// console.log(averageOfMonths(getTotalByMonth, data))
+console.log(averageOfMonths(getTotalByMonth, data))
 
 
 function currentMonth(getTotalByMonth, data) {
