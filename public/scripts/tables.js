@@ -93,7 +93,7 @@ $(document).ready(function() {
                 '$'+pageTotal.toFixed(2) +' ( $'+ total.toFixed(2) +' total)'
             );
 
-            $("#wallet-balance .append").html( '$' + total );
+            $("#wallet-balance .append").html( '$' + total.toFixed(2) );
         }
 
     }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
