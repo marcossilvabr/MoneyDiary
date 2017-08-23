@@ -6,7 +6,7 @@
       <script type="text/javascript">
          window.onload = function init() {
             jQuery('#filter-year').find('option[value="'+ new Date().getFullYear() + '"]').attr('selected', 'selected')
-            document.getElementById('filter-month').options[new Date().getMonth()].selected = true
+            jQuery('#filter-month').find('option[value="' + "0" + (new Date().getMonth() + 1) + '"]').attr('selected', 'selected')
          }
       </script>
 
