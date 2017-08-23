@@ -106,6 +106,8 @@ function categoryTotal(data) {
     let category = element['category']
     let amount   = Number(element['amount'])
 
+
+
     if ( !dataObject[category] ) {
       dataObject[category] = [{ month  : month,
                                 amount : Number(amount) }]
@@ -190,7 +192,12 @@ function getTotalByMonth(data) {
 
   data.forEach(( element, index ) => {
 
+    const date         = new Date()
+    const currentDate  = Date.parse(`${date.getFullYear()}/${date.getMonth()+1}`)
+
     let month = element['date'].split('/', 2).join('/')
+
+    if ( Date.parse(month) != currentDate ) {
 
     // If the element is not the last one in the array:
 
@@ -227,6 +234,7 @@ function getTotalByMonth(data) {
 
       }
 
+    }
   })
 
   // To reorder list and add out of order elements together
@@ -253,7 +261,8 @@ function getTotalByMonth(data) {
 
 
 }
-// console.log(getTotalByMonth(data))
+console.log(getTotalByMonth(data))
+// getTotalByMonth(data)
 
 
 function highestMonth(getTotalByMonth, data) {
