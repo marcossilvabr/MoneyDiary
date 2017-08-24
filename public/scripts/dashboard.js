@@ -202,6 +202,8 @@ $(document).ready(() => {
       $('#average-cashflow-panel').append(averageMonthNumber)
       $('#lowest-cashflow-panel').append(lowestCashflowNumber)
 
+      // $('.current-month').attr("data-content", "Income minus expenses for the current month")
+
     })
   })
 
