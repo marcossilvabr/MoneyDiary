@@ -1,8 +1,6 @@
 # MoneyDiary
 
-This project is not finished yet.
-
-Below, some screenshots of how the project looks now.
+Below, some screenshots of the actual product.
 
 MoneyDiary uses Node/Express/jQuery and MongoDB.
 
