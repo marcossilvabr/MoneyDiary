@@ -12,6 +12,7 @@ $(document).ready(() => {
       // -> Data Functions <-//
 
       function getTotalByMonth(data) {
+        console.log(data)
 
         let currentMonth = data[0]['date'].split('/', 2).join('/')
         let runningTotal = 0
@@ -189,6 +190,12 @@ $(document).ready(() => {
       const highestCashflow     = highestMonth(getTotalByMonth, data)
       const averageMonth        = Math.round(averageOfMonths(getTotalByMonth, data))
       const lowestCashflow      = lowestMonth(getTotalByMonth, data)
+      console.log('monthtotal', monthTotal)
+      console.log('overallCashflow', overallCashflow)
+      console.log('highestCashflow', highestCashflow)
+      console.log('averageMonth', averageMonth)
+      console.log('lowestCashflow', lowestCashflow)
+
 
       let monthTotalNumber      = $(`<p>$${monthTotal.toFixed(2)}</p>`)
       let overallCashflowNumber = $(`<h4>Total available: $${overallCashflow.toFixed(2)}</h4>`)

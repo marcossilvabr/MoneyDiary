@@ -96,7 +96,11 @@ $(document).ready(function() {
             $("#wallet-balance .append").html( '$' + total.toFixed(2) );
         }
 
-    }).search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
+    })
+
+    setTimeout(() => {
+      everything.search($("#filter-year").val() + "/" + $("#filter-month").val() + "/");
+    })
 
     var id = "test"
 

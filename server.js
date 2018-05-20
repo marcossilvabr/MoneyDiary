@@ -22,7 +22,11 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(session({ secret: 'secret' }))
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
